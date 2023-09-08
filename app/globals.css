@@ -1,76 +1,90 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 252, 252, 252;
     --foreground: 20 14.3% 4.1%;
 
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
- 
+
     --primary: 24 9.8% 10%;
     --primary-foreground: 60 9.1% 97.8%;
- 
+
     --secondary: 60 4.8% 95.9%;
     --secondary-foreground: 24 9.8% 10%;
- 
+
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
- 
+
     --accent: 60 4.8% 95.9%;
     --accent-foreground: 24 9.8% 10%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
 
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
     --ring: 20 14.3% 4.1%;
- 
+    --g-col: 163, 165, 169;
     --radius: 0.5rem;
+    --test-color: 22, 22, 22;
   }
- 
+
   .dark {
-    --background: 20 14.3% 4.1%;
+    --background: 22, 22, 22;
     --foreground: 60 9.1% 97.8%;
- 
+
     --card: 20 14.3% 4.1%;
     --card-foreground: 60 9.1% 97.8%;
- 
+
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
- 
+
     --primary: 60 9.1% 97.8%;
     --primary-foreground: 24 9.8% 10%;
- 
+
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
- 
+
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
- 
+
     --accent: 12 6.5% 15.1%;
     --accent-foreground: 60 9.1% 97.8%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 60 9.1% 97.8%;
- 
+
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
     --ring: 24 5.7% 82.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .slowmo {
+    @apply transition-all duration-300;
+  }
+
+  .mode {
+    @apply absolute flex items-center justify-center right-[50px] top-[50px] w-5 h-5;
+  }
+
+  .darkmode {
+    @apply relative scale-0 left-0 right-0 bottom-0 top-0 w-[500vw] h-[500vh] rounded-full dark:bg-secondary dark:scale-100 flex duration-300;
+    flex: 0 0 auto;
   }
 }

@@ -1,10 +1,5 @@
-import { ModeToggle } from "@/lib/themeToggle";
+// import { ModeToggle } from "@/lib/themeToggle";
 
 export default function Home() {
-  return (
-    <section>
-      this is were the magic happens
-      <ModeToggle />
-    </section>
-  );
+  return <section className="z-50">this is the laning page</section>;
 }
