@@ -44,7 +44,7 @@ export const userRoutes = () => {
       [
         {
           name: "Theme",
-          icon: Sun,
+          icon: Moon,
         },
       ],
     ],

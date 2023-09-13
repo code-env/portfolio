@@ -1,6 +1,6 @@
 "use client";
 
-import { userRoutes } from "@/constants/indext";
+import { userRoutes } from "@/constants";
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -28,13 +28,13 @@ const Navigation = () => {
     }
   };
   return (
-    <footer className="fixed left-1/2 transform -translate-x-1/2 dark:bg-zinc-900 bg-clip-padding  bg-zinc-300 backdrop-filter backdrop-blur-3xl bg-opacity-60 backdrop-saturate-200 backdrop-contrast-100 bottom-8  p-2 flex gap-1 hover:scale-110 slowmo h-[64px] rounded-full">
+    <footer className="fixed left-1/2 transform -translate-x-1/2 bg-zinc-900 bg-clip-padding  backdrop-filter backdrop-blur-3xl bg-opacity-60 backdrop-saturate-200 backdrop-contrast-100 bottom-8  p-2 flex gap-1 slowmo h-[64px] rounded-xl">
       {routes.map((sections, i) => (
         <section className="flex items-end gap-2" key={i}>
           {sections.map((section, index) => (
             <button
               key={section.name}
-              className={`text-white text-2xl font-bold  transition- slowmo dark:bg-zinc-900/90 flex items-center bg-slate-50 justify-center rounded-full`}
+              className={`text-white text-2xl font-bold  transition- slowmo bg-zinc-900/90 flex items-center justify-center rounded-xl`}
               style={{
                 width: hoveredButton === section.name ? "70px" : "48px",
                 height: hoveredButton === section.name ? "70px" : "48px",
@@ -46,7 +46,6 @@ const Navigation = () => {
               <section.icon />
             </button>
           ))}
-          {/* <button></button> */}
         </section>
       ))}
     </footer>
