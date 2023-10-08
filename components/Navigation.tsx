@@ -4,6 +4,7 @@ import { userRoutes } from "@/constants";
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import Theme from "@/components/ui/theme";
+import { motion } from "framer-motion";
 
 const Navigation = () => {
   const routes = userRoutes();
@@ -36,9 +37,13 @@ const Navigation = () => {
         {routes.map((sections, i) => (
           <section className="flex items-end gap-2" key={i}>
             {sections.map((section, index) => (
-              <button
+              <motion.button
+                whileHover={{
+                  // scale: 1.2,
+                  transition: { duration: 0.3 },
+                }}
                 key={section.name}
-                className={`text-white text-2xl font-bold  transition- slowmo bg-zinc-900/90 flex items-center justify-center rounded-xl`}
+                className={`text-white text-2xl font-bold  transition- slowmo bg-zinc-900/90 flex items-center justify-center rounded-xl w-12 h-12`}
                 style={{
                   width: hoveredButton === section.name ? "70px" : "48px",
                   height: hoveredButton === section.name ? "70px" : "48px",
@@ -48,7 +53,7 @@ const Navigation = () => {
                 onClick={() => changeTheme(section.name)}
               >
                 <section.icon />
-              </button>
+              </motion.button>
             ))}
           </section>
         ))}
