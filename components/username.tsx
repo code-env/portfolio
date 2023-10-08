@@ -1,27 +1,29 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 const targetWord = "bossadi zenith";
 
 const EncryptionScript: React.FC = () => {
   const [currentLetters, setCurrentLetters] = useState([
     "A",
-    "A",
-    "A",
-    "A",
-    "A",
-    "A",
-    "A",
+    "Z",
+    "B",
+    "E",
+    "G",
+    "B",
+    "Q",
     " ",
-    "A",
-    "A",
-    "A",
-    "A",
-    "A",
-    "A",
+    "K",
+    "N",
+    "S",
+    "M",
+    "V",
+    "H",
   ]);
   const encryptedText = currentLetters.join("");
+
+  const controls = useAnimation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -42,7 +44,9 @@ const EncryptionScript: React.FC = () => {
       } else {
         setCurrentLetters(updatedLetters);
       }
-    }, 100); // Adjust the interval speed as needed
+    }, 20);
+
+    controls.start({ opacity: 1, x: 0 });
 
     return () => {
       clearInterval(timer);
@@ -51,7 +55,14 @@ const EncryptionScript: React.FC = () => {
 
   return (
     <div>
-      <p className="capitalize text-5xl font-black">{encryptedText}</p>
+      <motion.p
+        initial={{ opacity: 0, x: -20 }}
+        animate={controls}
+        transition={{ duration: 0.5, opacity: { duration: 0.5 } }}
+        className="capitalize text-5xl font-black"
+      >
+        {encryptedText}
+      </motion.p>
     </div>
   );
 };
