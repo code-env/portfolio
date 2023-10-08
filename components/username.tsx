@@ -1,30 +1,59 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-const targetName = "bossadi zenith"; // Your target name
+const targetWord = "bossadi zenith";
 
-const Username: React.FC = () => {
-  const [progress, setProgress] = useState<string[]>([]);
+const EncryptionScript: React.FC = () => {
+  const [currentLetters, setCurrentLetters] = useState([
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    " ",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+  ]);
+  const encryptedText = currentLetters.join("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        const nextChar = targetName[prevProgress.length];
-        if (nextChar) {
-          return [...prevProgress, nextChar];
-        } else {
-          clearInterval(interval);
-          return prevProgress;
+    const timer = setInterval(() => {
+      const updatedLetters = [...currentLetters];
+      let shouldStop = true;
+
+      for (let i = 0; i < targetWord.length; i++) {
+        if (currentLetters[i] !== targetWord[i]) {
+          updatedLetters[i] = String.fromCharCode(
+            currentLetters[i].charCodeAt(0) + 1
+          );
+          shouldStop = false;
         }
-      });
-    }, 100);
-  }, []);
+      }
+
+      if (shouldStop) {
+        clearInterval(timer);
+      } else {
+        setCurrentLetters(updatedLetters);
+      }
+    }, 100); // Adjust the interval speed as needed
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [currentLetters]);
 
   return (
     <div>
-      <p className="font-extrabold text-3xl capitalize">{progress.join("")}</p>
+      <p className="capitalize text-5xl font-black">{encryptedText}</p>
     </div>
   );
 };
 
-export default Username;
+export default EncryptionScript;
