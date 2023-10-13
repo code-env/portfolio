@@ -29,7 +29,7 @@ export default function RootLayout({
           <section className="mode">
             <section className="darkmode" />
           </section>
-          <main className="z-50">{children}</main>
+          <main className="z-50 max-w-7xl mx-auto">{children}</main>
           <Navigation />
         </ThemeProvider>
       </body>
