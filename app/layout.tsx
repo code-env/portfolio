@@ -62,7 +62,7 @@ export default function RootLayout({
               {children}
             </section>
           </main>
-          <Navigation />
+          {/* <Navigation /> */}
         </ThemeProvider>
       </body>
     </html>
