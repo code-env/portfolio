@@ -59,7 +59,7 @@ const EncryptionScript: React.FC = () => {
         initial={{ opacity: 0, x: -20 }}
         animate={controls}
         transition={{ duration: 0.5, opacity: { duration: 0.5 } }}
-        className="capitalize text-5xl font-black"
+        className="capitalize text-5xl font-black z-50"
       >
         {encryptedText}
       </motion.p>

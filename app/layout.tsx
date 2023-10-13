@@ -27,9 +27,9 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <section className="mode">
-            <section className="darkmode"></section>
+            <section className="darkmode" />
           </section>
-          <main className="">{children}</main>
+          <main className="z-50">{children}</main>
           <Navigation />
         </ThemeProvider>
       </body>
