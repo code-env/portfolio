@@ -1,11 +1,12 @@
 import React from "react";
 import Username from "./username";
 import Link from "next/link";
+import { Button, buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
     <section className="antialiased h-screen flex justify-center flex-col text-background">
-      <p className="text-base mb-4">Welcome, I'm</p>
+      <p className="text-lg mb-4">Welcome, I'm</p>
       {/* <Username /> */}
       <h1 className="font-semibold text-[80px] leading-[80px]">
         Bossadi Zenith
@@ -32,6 +33,16 @@ const Hero = () => {
         </Link>
         .
       </p>
+      <Link
+        href="mailto:zenithnoble354@gmai.com"
+        className={buttonVariants({
+          className:
+            "mt-4 border-zinc-700 border bg-transparent p-4 rounded-sm text-lg hover:bg-zinc-700 hover:text-zinc-100",
+          size: "lg",
+        })}
+      >
+        Get in touch
+      </Link>
     </section>
   );
 };
