@@ -1,16 +1,44 @@
 import { ThemeProvider } from "@/providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import { cn } from "@/lib/utils";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
   description: "Software developer and visual",
 };
+
+const calibre = localFont({
+  src: [
+    {
+      path: "./calibre/CalibreLight.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./calibre/CalibreRegular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./calibre/CalibreMedium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./calibre/CalibreSemibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./calibre/CalibreBlack.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+});
 
 export default function RootLayout({
   children,
@@ -21,15 +49,19 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          inter.className,
-          "dark:bg-[rgb(22,22,22)] dark:text-white transition-all duration-300  overflow-hidden after:-left-full dark:after:left-0 after:duration-300  after:bg-green-600 "
+          calibre.className,
+          "dark:bg-[rgb(22,22,22)] dark:text-white transition-all duration-300  overflow-hidden after:-left-full dark:after:left-0 after:duration-300  after:bg-green-600 font-"
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <section className="mode">
             <section className="darkmode" />
           </section>
-          <main className="z-50 max-w-7xl mx-auto">{children}</main>
+          <main className="grainy">
+            <section className="z-50 max-w-7xl mx-auto px-10">
+              {children}
+            </section>
+          </main>
           <Navigation />
         </ThemeProvider>
       </body>

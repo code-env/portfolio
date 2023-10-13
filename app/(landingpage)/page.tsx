@@ -1,12 +1,11 @@
 // import { ModeToggle } from "@/lib/themeToggle";
 
-import Username from "@/components/username";
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
-    <section className="z-50 h-screen flex  flex-col">
-      <Username />
-      <p>Imagine a world with endless opportunities!</p>
+    <section className="z-50 min-h-screen flex flex-col">
+      <Hero />
     </section>
   );
 }
