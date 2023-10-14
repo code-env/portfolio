@@ -34,13 +34,17 @@ const Hero = () => {
       </p>
       <Link
         href="mailto:zenithnoble354@gmai.com"
-        className={buttonVariants({
-          className:
-            "mt-4 border-zinc-700 border bg-transparent p-4 rounded-sm text-lg hover:bg-zinc-700 hover:text-zinc-100",
-          size: "lg",
-        })}
+        className="mt-4  bg-transparent py-2 px-4 rounded-sm text-lg group  hover:text-zinc-700 w-fit  relative"
       >
         Get in touch
+        {/* TOP */}
+        <span className="absolute left-0 top-0 h-[2px] w-full bg-zinc-700 transition-all duration-100 group-hover:w-0" />
+        {/* RIGHT */}
+        <span className="absolute right-0 top-0 h-full w-[2px] bg-zinc-700 transition-all delay-100 duration-100 group-hover:h-0" />
+        {/* BOTTOM */}
+        <span className="absolute bottom-0 right-0 h-[2px] w-full bg-zinc-700 transition-all delay-200 duration-100 group-hover:w-0" />
+        {/* LEFT */}
+        <span className="absolute bottom-0 left-0 h-full w-[2px] bg-zinc-700 transition-all delay-300 duration-100 group-hover:h-0" />
       </Link>
     </section>
   );

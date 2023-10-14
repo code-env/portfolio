@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import Btn from "./btn";
 
 const Socials = () => {
   const socials = [
@@ -29,12 +30,14 @@ const Socials = () => {
     },
   ];
   return (
-    <section className="fixed w-full left-0 bottom-0 px-20 text-background flex justify-between h-96 z-0">
-      <section className="space-y-8 flex flex-col">
+    <section className="fixed w-full left-0 bottom-0 px-20 text-background flex justify-between h-96 z-0 bg-slate-400">
+      <section className="space-y-3 flex flex-col">
         {socials.map((social) => (
-          <Link href={social.link} target="_blank">
-            <social.icon />
-          </Link>
+          <Btn>
+            <Link href={social.link} target="_blank">
+              <social.icon />
+            </Link>
+          </Btn>
         ))}
       </section>
       <section className="rotate-90">
