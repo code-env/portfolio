@@ -58,7 +58,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Socials />
           <main className="grainy">
-            <section className="z-50 max-w-7xl mx-auto px-10">
+            <section className="z-50 max-w-7xl mx-auto px-10 relative">
               <Navbar />
               {children}
             </section>

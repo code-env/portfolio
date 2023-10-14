@@ -30,7 +30,7 @@ const Socials = () => {
     },
   ];
   return (
-    <section className="fixed w-full left-0 bottom-0 px-20 text-background flex justify-between h-96 z-0 bg-slate-400">
+    <section className="fixed w-full left-0 bottom-0 px-20 text-background flex justify-between h-96 z-0">
       <section className="space-y-3 flex flex-col">
         {socials.map((social) => (
           <Btn>
