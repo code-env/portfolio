@@ -1,7 +1,6 @@
 import React from "react";
-import Username from "./username";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -15,7 +14,7 @@ const Hero = () => {
         I build web Applications.
       </h1>
       <p className="text-xl text-zinc-700">
-        I’m a software Developer specializing in building (and occasionally{" "}
+        I’m a software Developer specialized in building (and occasionally{" "}
         <br />
         designing logos) exceptional digital experiences. Currently, I’m focused{" "}
         <br />

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
@@ -59,6 +60,7 @@ export default function RootLayout({
           </section>
           <main className="grainy">
             <section className="z-50 max-w-7xl mx-auto px-10">
+              <Navbar />
               {children}
             </section>
           </main>
