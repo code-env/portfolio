@@ -4,7 +4,7 @@ import { buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section className="antialiased h-screen flex justify-center flex-col text-background">
+    <section className="antialiased h-screen flex justify-center flex-col text-background z-50">
       <p className="text-lg mb-4">Welcome, I'm</p>
       {/* <Username /> */}
       <h1 className="font-semibold text-[80px] leading-[80px]">

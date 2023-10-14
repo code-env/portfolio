@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
+import Socials from "@/components/socials";
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
@@ -55,9 +56,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <section className="mode">
-            <section className="darkmode" />
-          </section>
+          <Socials />
           <main className="grainy">
             <section className="z-50 max-w-7xl mx-auto px-10">
               <Navbar />

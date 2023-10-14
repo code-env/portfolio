@@ -5,22 +5,19 @@ const Navbar = () => {
   const navList = ["about", "blog", "work", "contact"];
 
   return (
-    <header className="h-20 flex text-background backdrop-blur-sm fixed top-0 left-0 w-screen justify-between px-20 items-center">
+    <header className="h-20 flex text-background backdrop-blur-sm fixed top-0 left-0 w-full justify-between px-20 items-center">
       <Link href="/">
         <section className="font-bold text-2xl">Zenith</section>
       </Link>
       <nav>
-        <ul className="flex items-center gap-4 relative">
+        <ul className="flex items-center gap-4 relative antialiased">
           {navList.map((list, index) => (
-            <Link href="#" className="">
-              <li
-                key={list}
-                className="capitalize flex items-center gap-2 links"
-              >
+            <li key={list} className="capitalize flex items-center gap-2">
+              <Link href="#" className="flex items-center gap-2">
                 <span className="text-base">0{index + 1}.</span>
                 <span className="capitalize">{list}</span>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>

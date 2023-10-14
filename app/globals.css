@@ -61,6 +61,6 @@
   }
 
   .links {
-    @apply relative w-0 before:w-full before:bg-red-700 before:absolute before:h-[2px] before:rounded-md before:duration-300 before:-bottom-[2px] before:scale-x-0 hover:before:scale-x-100 before:transition-transform
+    @apply relative w-0 before:w-full before:bg-zinc-700 before:absolute before:h-[2px] before:rounded-md before:duration-300 before:-bottom-[1px] before:scale-x-0 hover:before:scale-x-100 before:transition-transform
   }
 }
