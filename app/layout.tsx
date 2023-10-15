@@ -49,12 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          calibre.className,
-          "dark:bg-[rgb(22,22,22)] dark:text-white transition-all duration-300  overflow-hidden after:-left-full dark:after:left-0 after:duration-300  after:bg-green-600 font-"
-        )}
-      >
+      <body className={calibre.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Socials />
           <main className="grainy">

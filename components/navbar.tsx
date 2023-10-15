@@ -5,7 +5,7 @@ const Navbar = () => {
   const navList = ["about", "blog", "work", "contact"];
 
   return (
-    <header className="h-20 flex text-background backdrop-blur-sm fixed top-0 left-0 w-full justify-between px-20 items-center">
+    <header className="h-20 flex text-background backdrop-blur-sm fixed top-0 left-0 w-full justify-between px-20 items-center z-[999]">
       <Link href="/">
         <section className="font-bold text-2xl">Zenith</section>
       </Link>
