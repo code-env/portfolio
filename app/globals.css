@@ -39,8 +39,13 @@
     @apply border-border;
   }
 
+  html {
+    position: relative;
+  }
+
   body {
     @apply bg-background text-foreground;
+
   }
 
   .slowmo {
@@ -74,5 +79,9 @@
     background-repeat: no-repeat;
     background-position: left, right;
     transform: rotateX(90deg);
+  }
+
+  .this::before {
+    width: 400px !important;
   }
 }
