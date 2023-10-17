@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="antialiased h-screen items-center flex text-background z-50">
       <section className="flex  flex-col gap-4">
-        <p className="text-lg w-fit">Welcome, I'm</p>
+        <p className="text-lg w-fit">Welcome, I&apos;m</p>
         <h1 className="font-semibold text-[80px] leading-[80px]">
           Bossadi Zenith
         </h1>

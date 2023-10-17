@@ -23,8 +23,8 @@ const About = () => {
             internet. My interest in web development started back in 2020 when I
             decided to build the website for our project SSAMS ( School Security
             and Attendance Management System ) to go in for a competition (TiC
-            summit 2021). I guess that's was my spark into the development world
-            till date
+            summit 2021). I guess that&apos;s was my spark into the development
+            world till date
           </p>
           <section>
             <p>
