@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
@@ -56,6 +57,7 @@ export default function RootLayout({
             <section className="z-50 max-w-7xl mx-auto px-10 relative">
               <Navbar />
               {children}
+              <Footer />
             </section>
           </main>
           {/* <Navigation /> */}
