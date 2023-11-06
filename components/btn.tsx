@@ -4,7 +4,7 @@ const Btn = ({ children, ...rest }: { children: ReactNode }) => {
   return (
     <button
       {...rest}
-      className="group relative px-4 py-2 font-medium text-zinc-700 transition-colors duration-[400ms] "
+      className="group relative px-4 py-2 font-medium text-zinc-700 transition-colors duration-300"
     >
       <span>{children}</span>
 

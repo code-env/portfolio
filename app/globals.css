@@ -45,7 +45,6 @@
 
   body {
     @apply bg-background text-foreground;
-
   }
 
   .slowmo {
@@ -66,14 +65,13 @@
   }
 
   .links {
-    @apply relative w-0 before:w-full before:bg-zinc-700 before:absolute before:h-[2px] before:rounded-md before:duration-300 before:-bottom-[1px] before:scale-x-0 hover:before:scale-x-100
+    @apply relative w-0 before:w-full before:bg-zinc-700 before:absolute before:h-[2px] before:rounded-md before:duration-300 before:-bottom-[1px] before:scale-x-0 hover:before:scale-x-100;
   }
 
   .triangle {
     width: 10px;
     height: 10px;
-    background-image:
-      linear-gradient(to bottom right, transparent 50%, red 0),
+    background-image: linear-gradient(to bottom right, transparent 50%, red 0),
       linear-gradient(to top right, red 50%, transparent 0);
     background-size: 50% 100%;
     background-repeat: no-repeat;
@@ -83,5 +81,11 @@
 
   .this::before {
     width: 400px !important;
+  }
+
+  .something-1:nth-child(2) .something {
+    left: 0;
+    right: 50%;
+    align-items: flex-start;
   }
 }
