@@ -1,5 +1,4 @@
 import React from "react";
-import Btn from "../btn";
 import Link from "next/link";
 
 const GetInTouch = () => {
@@ -25,7 +24,7 @@ const GetInTouch = () => {
         </p>
         <Link
           href="mailto:zenithnoble354@gmai.com"
-          className="bg-transparent py-2 px-4 rounded-sm text-lg group hover:delay-300 hover:bg-zinc-700 hover:text-zinc-100 duration-300  w-fit h-fit  flex items-center justify-center relative"
+          className="bg-transparent py-2 px-4 rounded-sm text-lg group hover:delay-300 hover:bg-zinc-700 hover:text-zinc-100 duration-300  w-fit flex items-center justify-center relative"
         >
           Say Hello
           <span className="absolute left-0 top-0 h-[2px] w-full bg-zinc-700 transition-all duration-100 group-hover:w-0" />

@@ -2,6 +2,7 @@ import React from "react";
 import HeaderText from "../header-text";
 import Image from "next/image";
 import { Play } from "lucide-react";
+import me from "@/public/z.jpg";
 
 const About = () => {
   const skills = [
@@ -41,10 +42,12 @@ const About = () => {
         </section>
         <section className="flex-[0.8] relative">
           <Image
-            src="/img.jpg"
+            src={me}
             alt="myself codeing"
             width={400}
             height={400}
+            placeholder="blur"
+            loading="lazy"
             className="h-[400px] w-[400px] relative rounded-2xl grayscale slowmo hover:grayscale-0 object-cover bg-zinc-500  "
           />
           <section />

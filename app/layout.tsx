@@ -3,7 +3,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
-import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
 import Footer from "@/components/footer";

@@ -1,11 +1,33 @@
+"use client";
+
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
   const navList = ["about", "blog", "work", "contact"];
 
+  const [bgColor, setBgColor] = useState(false);
+
+  function changeBg() {
+    if (window.scrollY >= 70) {
+      setBgColor(true);
+    } else {
+      setBgColor(false);
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", changeBg);
+  }
+
   return (
-    <header className="h-20 flex text-background backdrop-blur-sm fixed top-0 left-0 w-full justify-between px-20 items-center z-[999]">
+    <header
+      className={cn(
+        "h-20 flex text-background duration-300 fixed top-0 left-0 w-full justify-between px-20 items-center z-[999]",
+        bgColor && " backdrop-blur-lg"
+      )}
+    >
       <Link href="/">
         <section className="font-bold text-2xl">Zenith</section>
       </Link>
