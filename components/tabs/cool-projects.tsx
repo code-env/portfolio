@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const CoolProjects = () => {
   return (
-    <section className="mt-20 text-zinc-100">
-      <HeaderText h1="Some Project I've worked on" number="02" />
-      <section className="flex flex-col gap-10">
+    <section className="mt-20  flex flex-col gap-8">
+      <HeaderText number="02" h1="Some Project I've worked on" />
+      <section className="flex flex-col gap-10 text-zinc-100">
         {Array.from({ length: 3 }).map((_, index) => (
           <section
             className={`w-full flex even:justify-end relative something-${index}`}

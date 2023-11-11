@@ -44,10 +44,11 @@ const About = () => {
           <Image
             src={me}
             alt="myself codeing"
-            width={400}
+            width={600}
             height={400}
             placeholder="blur"
             loading="lazy"
+            sizes="100vw"
             className="h-[400px] w-[400px] relative rounded-2xl grayscale slowmo hover:grayscale-0 object-cover bg-zinc-500  "
           />
           <section />
