@@ -43,7 +43,7 @@ const About = () => {
         <section className="flex-[0.8] relative">
           <Image
             src={me}
-            alt="myself codeing"
+            alt="Bossadi Zenith code-env codeenv zenith-noble01"
             width={600}
             height={400}
             placeholder="blur"
