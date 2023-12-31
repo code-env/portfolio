@@ -7,11 +7,10 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
 import Footer from "@/components/footer";
-import Wrapper from "@/providers/wrapper";
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
-  description: "Software developer and visual",
+  description: "I build things that live on the internet.",
 };
 
 const calibre = localFont({
