@@ -1,11 +1,13 @@
-import { ThemeProvider } from "@/providers/theme-provider";
-import "./globals.css";
 import type { Metadata } from "next";
+
+import "./globals.css";
 import localFont from "next/font/local";
-import Navigation from "@/components/Navigation";
+
+import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
 import Footer from "@/components/footer";
+import Wrapper from "@/providers/wrapper";
 
 export const metadata: Metadata = {
   title: "Bossadi Zenith",
@@ -49,17 +51,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={calibre.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Socials />
-          <main className="grainy">
-            <section className="z-50 max-w-7xl mx-auto px-10 relative">
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          // disableTransitionOnChange
+        >
+          <div className={calibre.className}>
+            <Socials />
+            <div className="absolute top-0 z-[-2] h-screen w-full bg-background bg-[radial-gradient(ellipse_70%_70%_at_10%_10%,rgba(161,161,170,0.3),rgba(255,255,255,0))]" />
+            <div className="z-50 max-w-7xl mx-auto px-10 relative">
               <Navbar />
               {children}
               <Footer />
-            </section>
-          </main>
-          {/* <Navigation /> */}
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

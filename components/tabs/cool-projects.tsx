@@ -1,12 +1,12 @@
 import React from "react";
 import HeaderText from "../header-text";
-import { ArrowUpRightSquare, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 
 const CoolProjects = () => {
   return (
     <section className="mt-20  flex flex-col gap-8">
-      <HeaderText number="02" h1="Some Project I&apos;ve worked on" />
+      <HeaderText number="02" h1="Some Project I've worked on" />
       <section className="flex flex-col gap-10 text-zinc-100">
         {Array.from({ length: 3 }).map((_, index) => (
           <section
@@ -39,11 +39,11 @@ const CoolProjects = () => {
               </section>
               {/* links for the project */}
               <section className="flex gap-4 mt-5">
-                <Link href="#">
+                <Link href="#" target="_blank">
                   <Github />
                 </Link>
-                <Link href="#">
-                  <ArrowUpRightSquare />
+                <Link href="#" target="_blank">
+                  <ExternalLink />
                 </Link>
               </section>
             </section>

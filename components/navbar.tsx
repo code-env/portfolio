@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React, { useState } from "react";
+import Logo from "./shared/logo";
 
 const Navbar = () => {
   const navList = ["about", "blog", "work", "contact"];
@@ -28,9 +29,7 @@ const Navbar = () => {
         bgColor && " backdrop-blur-lg"
       )}
     >
-      <Link href="/">
-        <section className="font-bold text-2xl">Zenith</section>
-      </Link>
+      <Logo />
       <nav>
         <ul className="flex items-center gap-4 relative antialiased">
           {navList.map((list, index) => (
