@@ -30,8 +30,8 @@ const Socials = () => {
     },
   ];
   return (
-    <section className="fixed w-full left-0 bottom-0 px-20 text-background flex justify-between h-96 z-0">
-      <section className="space-y-3 flex flex-col">
+    <section className="fixed w-full left-0 bottom-0 lg:px-20 text-background flex justify-between h-96 z-0">
+      <section className="space-y-3 flex flex-col justify-end lg:justify-start">
         {socials.map((social) => (
           <Btn key={social.name}>
             <Link href={social.link} target="_blank">

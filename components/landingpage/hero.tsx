@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="h-screen flex items-center justify-center ">
       <div>
         <p className="hero_p">I AM</p>
-        <h1 className="text-5xl font-bold lg:text-[150px] text_shadow">
+        <h1 className="text-8xl font-bold lg:text-[150px] lg:text_shadow">
           ZENITH
         </h1>
         <p className="hero_p">A SOFTWARE DEVELOPER</p>

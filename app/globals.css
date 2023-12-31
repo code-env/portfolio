@@ -57,7 +57,7 @@
   }
 
   .hero_p {
-    @apply font-light text-zinc-500 text-3xl
+    @apply font-light text-zinc-500 lg:text-3xl text-xl
   }
 
   .slowmo {
