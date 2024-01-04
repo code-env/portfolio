@@ -57,7 +57,7 @@
   }
 
   .hero_p {
-    @apply font-light text-zinc-500 lg:text-3xl text-xl
+    @apply font-light text-zinc-500 lg:text-3xl text-xl;
   }
 
   .slowmo {
@@ -66,7 +66,6 @@
 
   .text_shadow {
     text-shadow: 4px 4px 9px rgba(0, 0, 0, 1);
-
   }
 
   .mode {
@@ -128,5 +127,4 @@
     backdrop-filter: blur(100px);
     /* z-index: -1; */
   }
-
 }
