@@ -65,7 +65,7 @@
   }
 
   .text_shadow {
-    text-shadow: 4px 4px 9px rgba(0, 0, 0, 1);
+    text-shadow: 4px -20px 20px rgb(23, 23, 23);
   }
 
   .mode {
@@ -127,4 +127,10 @@
     backdrop-filter: blur(100px);
     /* z-index: -1; */
   }
+}
+
+.rotation {
+  transform: rotate(-90deg) !important;
+  background: green;
+  max-width: fit-content !important;
 }

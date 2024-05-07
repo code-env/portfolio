@@ -30,22 +30,27 @@ const Socials = () => {
     },
   ];
   return (
-    <section className="fixed w-full left-0 bottom-0 lg:px-20 text-background flex justify-between h-96 z-0">
-      <section className="space-y-3 flex flex-col justify-end lg:justify-start">
-        {socials.map((social) => (
-          <Btn key={social.name}>
-            <Link href={social.link} target="_blank">
-              <social.icon />
-            </Link>
-          </Btn>
-        ))}
-      </section>
-      <section className="rotate-90">
-        <Link href="mailto:zenithnoble354@gmail.com">
-          zenithnoble354@gmail.com
-        </Link>
-      </section>
-    </section>
+    <div className="fixed w-full left-0 bottom-0 lg:px-20 text-background h-96 z-0">
+      <div className="relative flex justify-between">
+        <div className="space-y-3 flex flex-col justify-end lg:justify-start">
+          {socials.map((social) => (
+            <Btn key={social.name}>
+              <Link href={social.link} target="_blank">
+                <social.icon />
+              </Link>
+            </Btn>
+          ))}
+        </div>
+        <div className="absolute -right-16 top-[40%] rotate-90 ">
+          <Link
+            href="mailto:zenithnoble354@gmail.com"
+            className="text-zinc-500"
+          >
+            zenithnoble354@gmail.com
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
