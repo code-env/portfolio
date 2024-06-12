@@ -22,7 +22,6 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
           {children}
         </div>
       </div>
-      {/* <div></div> */}
     </main>
   );
 };

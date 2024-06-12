@@ -51,20 +51,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          // disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className={calibre.className}>
             <Socials />
-            <div className="absolute top-0 z-[-2] h-screen w-full bg-background bg-[radial-gradient(ellipse_70%_70%_at_10%_10%,rgba(161,161,170,0.3),rgba(255,255,255,0))]" />
-            <div className="z-50 max-w-7xl mx-auto px-10 relative">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
+            <Navbar />
+            {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
