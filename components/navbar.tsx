@@ -1,48 +1,41 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React, { useState } from "react";
-import Logo from "./shared/logo";
+import React, { useRef, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 const Navbar = () => {
-  const navList = ["about", "blog", "work", "contact"];
+  const [isHidden, setIsHidden] = useState(false);
+  const { scrollY } = useScroll();
+  const lastYRef = useRef(0);
 
-  const [bgColor, setBgColor] = useState(false);
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const difference = y - lastYRef.current;
 
-  function changeBg() {
-    if (window.scrollY >= 70) {
-      setBgColor(true);
-    } else {
-      setBgColor(false);
+    if (Math.abs(difference) > 50) {
+      setIsHidden(difference > 50);
+
+      lastYRef.current = y;
     }
-  }
-
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", changeBg);
-  }
+  });
 
   return (
-    <header
-      className={cn(
-        "h-20 flex text-background duration-300 fixed top-0 left-0 w-full justify-between px-20 items-center z-[999]",
-        bgColor && " backdrop-blur-lg"
-      )}
+    <motion.div
+      animate={isHidden ? "hidden" : "vissible"}
+      whileHover="vissible"
+      onFocusCapture={() => setIsHidden(false)}
+      variants={{
+        hidden: {
+          y: "-100%",
+        },
+        vissible: {
+          y: "0",
+        },
+      }}
+      transition={{ duration: 0.2 }}
+      className="fixed left-0 right-0 top-3 max-w-5xl w-full mx-auto h-20 rounded-xl flex px-8 items-center  bg-zinc-500 z-[10000000000]"
     >
-      <Logo />
-      <nav>
-        <ul className="flex items-center gap-4 relative antialiased">
-          {navList.map((list, index) => (
-            <li key={list} className="capitalize flex items-center gap-2">
-              <Link href="#" className="flex items-center gap-2">
-                <span className="text-base">0{index + 1}.</span>
-                <span className="capitalize">{list}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </header>
+      Navbar
+    </motion.div>
   );
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
 import Dots from "../dots";
 
 const Hero = () => {
