@@ -7,6 +7,7 @@ import Socials from "@/components/socials";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import LenisLayout from "@/providers/lenis-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -48,18 +49,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <div
-            className={cn(satoshi.className, "py-24 mx-auto max-w-7xl w-full")}
-          >
-            <Socials />
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
+      <LenisLayout>
+        <body className="transition-colors duration-300">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navbar />
+            <div
+              className={cn(
+                satoshi.className,
+                "py-24 mx-auto max-w-7xl w-full"
+              )}
+            >
+              <Socials />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </body>
+      </LenisLayout>
     </html>
   );
 }

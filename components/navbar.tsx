@@ -53,7 +53,12 @@ const Navbar = () => {
         },
       }}
       transition={{ duration: 0.2 }}
-      className="fixed px-4 lg:px-0 left-0 right-0 top-3 max-w-5xl w-full mx-auto h-14 border-b border-border justify-between flex items-center  text-neutral-700  z-[10000000000]"
+      className={cn(
+        "fixed px-4 lg:px-0 left-0 right-0 top-3 max-w-5xl w-full mx-auto h-14 border-b border-border backdrop-blur bg-background/50 justify-between flex items-center  transition-all duration-200 text-neutral-700  z-[10000000000]",
+        {
+          "lg:px-10 border": !isHidden,
+        }
+      )}
     >
       <h1 className="font-bold text-2xl">2(bkm)</h1>
       <ul className="items-center gap-2 hidden lg:flex">
