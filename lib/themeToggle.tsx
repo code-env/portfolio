@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { Cable, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -11,29 +11,42 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "./utils";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const { setTheme, resolvedTheme: userTheme } = useTheme();
+
+  if (!isMounted) return <div></div>;
+
+  const themes = [
+    {
+      name: "light",
+      icon: Sun,
+    },
+    {
+      name: "dark",
+      icon: Moon,
+    },
+  ];
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 dark:text-white" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <button
+      className={cn(
+        "h-10 w-10 flex items-center justify-center hover:bg-black/50 hover:text-white cursor-pointer rounded-full transition-all duration-300 dark:bg-green-500 backdrop-blur-md border border-boder"
+      )}
+      onClick={() => setTheme(userTheme === "dark" ? "light" : "dark")}
+    >
+      {userTheme === "dark" ? (
+        <Moon className="w-4 h-4 delay-300" />
+      ) : (
+        <Sun className="w-4 h-4" />
+      )}
+    </button>
   );
 }

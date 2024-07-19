@@ -17,7 +17,7 @@ const Hero = () => {
         <p className="text-neutral-700">Hi, I&apos;m Zenith 👋</p>
       </div>
       <div className="flex items-center justify-center flex-col gap-5">
-        <h1 className="lg:text-6xl text-4xl font-bold text-center bg-gradient-to-b text-neutral-400 bg-clip-text from-orange-700 via-white to-green-500">
+        <h1 className="font-extrabold tracking-tight text-transparent text-4xl lg:text-7xl  bg-clip-text bg-gradient-to-r dark:from-zinc-500/50 dark:via-zinc-200 dark:to-zinc-500/50 from-zinc-900 via-zinc-700 to-zinc-900 text-center">
           I build things that live{" "}
           <br
             className="hidden lg:block

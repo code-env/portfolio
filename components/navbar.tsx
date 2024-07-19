@@ -5,6 +5,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "@/lib/themeToggle";
 
 const Navbar = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -71,7 +72,7 @@ const Navbar = () => {
                 className={cn(
                   "capitalize hover:text-neutral-200 duration-300 transition-all",
                   {
-                    "text-neutral-200": isActiveRoute,
+                    "dark:text-neutral-200 text-zinc-800": isActiveRoute,
                   }
                 )}
               >
@@ -82,7 +83,7 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <div></div>
+      <ModeToggle />
     </motion.nav>
   );
 };

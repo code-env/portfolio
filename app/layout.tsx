@@ -6,11 +6,12 @@ import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Bossadi Zenith",
-    template: "%s | Bossadi Zenith",
+    template: " %s | Bossadi Zenith",
   },
   description: "I build things that live on the internet.",
 };
@@ -47,11 +48,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <div
-            className={cn(satoshi.className, "py-24 mx-auto max-w-7xl w-full ")}
+            className={cn(satoshi.className, "py-24 mx-auto max-w-7xl w-full")}
           >
             <Socials />
             {children}
