@@ -1,6 +1,5 @@
 "use client";
 
-import React, { ReactNode } from "react";
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Btn from "./btn";

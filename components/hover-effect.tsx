@@ -1,12 +1,9 @@
 import { ReactNode } from "react";
 
-const Btn = ({ children, ...rest }: { children: ReactNode }) => {
+const HoverEffect = ({ children }: { children: ReactNode }) => {
   return (
-    <button
-      {...rest}
-      className="group relative px-4 py-2 font-medium text-zinc-700 transition-colors duration-300"
-    >
-      <span>{children}</span>
+    <>
+      {children}
 
       {/* TOP */}
       <span className="absolute left-0 top-0 h-[2px] w-0 bg-zinc-700 transition-all duration-100 group-hover:w-full" />
@@ -19,8 +16,8 @@ const Btn = ({ children, ...rest }: { children: ReactNode }) => {
 
       {/* LEFT */}
       <span className="absolute bottom-0 left-0 h-0 min-w-[3px] bg-zinc-700 transition-all delay-300 duration-100 group-hover:h-full" />
-    </button>
+    </>
   );
 };
 
-export default Btn;
+export default HoverEffect;

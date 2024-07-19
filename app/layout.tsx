@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -7,38 +5,37 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar";
 import Socials from "@/components/socials";
 import Footer from "@/components/footer";
+import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Bossadi Zenith",
+export const metadata = {
+  title: {
+    default: "Bossadi Zenith",
+    template: "%s | Bossadi Zenith",
+  },
   description: "I build things that live on the internet.",
 };
 
-const calibre = localFont({
+const satoshi = localFont({
   src: [
     {
-      path: "./calibre/CalibreLight.otf",
+      path: "../fonts/Satoshi-Light.otf",
+      weight: "100",
+    },
+    {
+      path: "../fonts/Satoshi-Regular.otf",
       weight: "300",
-      style: "normal",
     },
     {
-      path: "./calibre/CalibreRegular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./calibre/CalibreMedium.otf",
+      path: "../fonts/Satoshi-Medium.otf",
       weight: "500",
-      style: "normal",
     },
     {
-      path: "./calibre/CalibreSemibold.otf",
-      weight: "600",
-      style: "normal",
+      path: "../fonts/Satoshi-Bold.otf",
+      weight: "700",
     },
     {
-      path: "./calibre/CalibreBlack.otf",
+      path: "../fonts/Satoshi-Black.otf",
       weight: "900",
-      style: "normal",
     },
   ],
 });
@@ -52,9 +49,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className={calibre.className}>
+          <Navbar />
+          <div
+            className={cn(satoshi.className, "py-24 mx-auto max-w-7xl w-full ")}
+          >
             <Socials />
-            <Navbar />
             {children}
             <Footer />
           </div>
