@@ -25,16 +25,12 @@ const Hero = () => {
           />{" "}
           on the internet
         </h1>
-        <button className="relative group  px-10 py-2">
-          <HoverEffect>
-            <Link
-              href="mailto:zenithnoble354@gmail.com"
-              className="w-full h-full"
-            >
-              Let&apos;s have a talk
-            </Link>
-          </HoverEffect>
-        </button>
+        <Link
+          href="mailto:zenithnoble354@gmail.com"
+          className="px-10 py-2 relative group "
+        >
+          <HoverEffect>Let&apos;s have a talk</HoverEffect>
+        </Link>
       </div>
     </div>
   );
