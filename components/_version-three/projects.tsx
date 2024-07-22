@@ -8,10 +8,10 @@ const Projects = () => {
   const [projects, setProjects] = useState(6);
 
   return (
-    <div className="min-h-fit relative flex flex-col gap-10">
+    <div className="min-h-fit relative flex flex-col gap-10 px-4 2xl:px-0">
       <h1 className="text-3xl text-neutral-700 font-bold">Some of my doings</h1>
       <AnimatePresence>
-        <motion.div className="grid grid-cols-3 gap-5">
+        <motion.div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
           {Array.from({ length: projects }).map((_, index) => {
             //some code here
             return (

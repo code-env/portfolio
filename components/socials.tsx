@@ -29,7 +29,7 @@ const Socials = () => {
     },
   ];
   return (
-    <div className="fixed w-full left-0 bottom-0 lg:px-20 text-background h-96 z-0">
+    <div className="fixed w-full left-0 bottom-0 lg:px-20 text-background h-96 z-0 hidden lg:block">
       <div className="relative flex justify-between">
         <div className="space-y-3 flex flex-col justify-end lg:justify-start">
           {socials.map((social) => (
