@@ -17,7 +17,7 @@ const Projects = () => {
             return (
               <div
                 key={index}
-                className="bg-background/50 backdrop-blur border border-border/50 p-3"
+                className="bg-background/50 backdrop-blur border dark:border-border/50 border-border p-3"
               >
                 <div className="h-80" />
               </div>
