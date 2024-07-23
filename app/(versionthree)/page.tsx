@@ -3,7 +3,7 @@ import Projects from "@/components/_version-three/projects";
 
 const Page = () => {
   return (
-    <div className="flex flex-col gap-40">
+    <div className="flex flex-col gap-40 w-full">
       <Hero />
       <Projects />
     </div>

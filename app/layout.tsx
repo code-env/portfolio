@@ -60,7 +60,7 @@ export default function RootLayout({
               )}
             >
               <Socials />
-              {children}
+              <div className="flex w-full mt-32">{children}</div>
               <Footer />
             </div>
           </ThemeProvider>

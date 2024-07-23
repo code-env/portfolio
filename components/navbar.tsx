@@ -26,8 +26,12 @@ const Navbar = () => {
 
   const routes = [
     {
-      name: "home",
-      path: "/",
+      name: "about",
+      path: "/about",
+    },
+    {
+      name: "lab",
+      path: "/lab",
     },
     {
       name: "writings",
