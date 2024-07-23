@@ -79,9 +79,9 @@ const Navbar = () => {
               <Link
                 href={route.path}
                 className={cn(
-                  "capitalize hover:text-neutral-200 duration-300 transition-all",
+                  "capitalize hover:dark:text-neutral-200 hover:text-neutral-400  duration-300 transition-all",
                   {
-                    "dark:text-neutral-200 text-zinc-800": isActiveRoute,
+                    "dark:text-neutral-200 text-neutral-700": isActiveRoute,
                   }
                 )}
               >
