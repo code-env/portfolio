@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <LenisLayout>
-        <body className="transition-colors duration-300">
+        <body className="transition-colors duration-300 lg:px-20 px-10">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />
             <div
