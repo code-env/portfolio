@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 
 const targetWord = "bossadi zenith";
 
-const EncryptionScript: React.FC = () => {
+const Text: React.FC = () => {
   const [currentLetters, setCurrentLetters] = useState([
     "A",
     "Z",
@@ -67,4 +67,4 @@ const EncryptionScript: React.FC = () => {
   );
 };
 
-export default EncryptionScript;
+export default Text;
