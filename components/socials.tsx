@@ -3,6 +3,7 @@
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Btn from "./btn";
+import HoverEffect from "./hover-effect";
 
 const Socials = () => {
   const socials = [
@@ -33,11 +34,16 @@ const Socials = () => {
       <div className="relative flex justify-between">
         <div className="space-y-3 flex flex-col justify-end lg:justify-start">
           {socials.map((social) => (
-            <Btn key={social.name}>
-              <Link href={social.link} target="_blank">
+            <Link
+              href={social.link}
+              target="_blank"
+              className="p-2 relative group text-neutral-700"
+              key={social.name}
+            >
+              <HoverEffect>
                 <social.icon />
-              </Link>
-            </Btn>
+              </HoverEffect>
+            </Link>
           ))}
         </div>
         <div className="absolute -right-16 top-[40%] rotate-90 ">
