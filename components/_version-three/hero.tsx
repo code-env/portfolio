@@ -1,7 +1,8 @@
-import HoverEffect from "@/components/hover-effect";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
 import TextGradient from "./text-gradient";
+import HoverEffect from "@/components/hover-effect";
 
 const Hero = () => {
   return (

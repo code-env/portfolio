@@ -1,9 +1,9 @@
 "use client";
 
-import { contactForm, validateContactForm } from "@/validations";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Form,
   FormControl,
@@ -13,9 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import HoverEffect from "@/components/hover-effect";
+import { Textarea } from "@/components/ui/textarea";
+import { contactForm, validateContactForm } from "@/validations";
 
 const ContactForm = () => {
   const form = useForm<contactForm>({
@@ -31,7 +31,9 @@ const ContactForm = () => {
     formState: { isSubmitting },
   } = form;
 
-  async function onSubmit(values: contactForm) {}
+  async function onSubmit(values: contactForm) {
+    form.reset();
+  }
 
   return (
     <div className="my-20">
