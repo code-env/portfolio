@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import HoverEffect from "@/components/hover-effect";
 import { Textarea } from "@/components/ui/textarea";
 import { contactForm, validateContactForm } from "@/validations";
+import { ArrowUpRight } from "lucide-react";
 
 const ContactForm = () => {
   const form = useForm<contactForm>({
@@ -97,8 +98,10 @@ const ContactForm = () => {
               )}
             />
           </div>
-          <button className="px-10 py-2 relative group lg:w-1/2 outline-none">
-            <HoverEffect>Let&apos;s go</HoverEffect>
+          <button className="px-10 py-2 relative group lg:w-1/2 outline-none flex gap-3 items-center justify-center">
+            <HoverEffect>
+              Let&apos;s go <ArrowUpRight className="w-4 h-4" />{" "}
+            </HoverEffect>
           </button>
         </form>
       </Form>

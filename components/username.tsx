@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 const targetWord = "bossadi zenith";
 
 const Text: React.FC = () => {
+  const [isActive, setIsActive] = useState(false);
   const [currentLetters, setCurrentLetters] = useState([
     "A",
     "Z",
@@ -51,7 +52,7 @@ const Text: React.FC = () => {
     return () => {
       clearInterval(timer);
     };
-  }, [currentLetters]);
+  }, [currentLetters, isActive]);
 
   return (
     <div>
@@ -60,6 +61,7 @@ const Text: React.FC = () => {
         animate={controls}
         transition={{ duration: 0.5, opacity: { duration: 0.5 } }}
         className="capitalize text-[80px] font-semibold"
+        onMouseEnter={() => setIsActive(true)}
       >
         {`${encryptedText}.`}
       </motion.p>

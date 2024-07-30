@@ -16,7 +16,7 @@ const Lab = () => {
         <span className="opacity-0 cursor-default">Not</span>
       </TextGradient>
 
-      {/* <Text /> */}
+      <Text />
     </div>
   );
 };
