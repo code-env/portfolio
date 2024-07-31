@@ -11,4 +11,4 @@ export const validateContactForm = z.object({
     .max(2000, { message: "Message too long" }),
 });
 
-export type contactForm = z.infer<typeof validateContactForm>;
+export type ContactFormType = z.infer<typeof validateContactForm>;

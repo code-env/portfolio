@@ -52,7 +52,7 @@ const Text: React.FC = () => {
     return () => {
       clearInterval(timer);
     };
-  }, [currentLetters, isActive]);
+  }, [currentLetters, isActive, controls]);
 
   return (
     <div>

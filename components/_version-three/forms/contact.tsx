@@ -15,11 +15,11 @@ import {
 import { Input } from "@/components/ui/input";
 import HoverEffect from "@/components/hover-effect";
 import { Textarea } from "@/components/ui/textarea";
-import { contactForm, validateContactForm } from "@/validations";
+import { ContactFormType, validateContactForm } from "@/validations";
 import { ArrowUpRight } from "lucide-react";
 
 const ContactForm = () => {
-  const form = useForm<contactForm>({
+  const form = useForm<ContactFormType>({
     defaultValues: {
       name: "",
       email: "",
@@ -32,7 +32,7 @@ const ContactForm = () => {
     formState: { isSubmitting },
   } = form;
 
-  async function onSubmit(values: contactForm) {
+  async function onSubmit(values: ContactFormType) {
     form.reset();
   }
 

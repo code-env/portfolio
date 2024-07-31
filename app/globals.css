@@ -70,4 +70,8 @@
   .default {
     color: initial;
   }
+
+  .slowmo {
+    @apply duration-300 transition-all;
+  }
 }
