@@ -42,7 +42,7 @@ const Hero = () => {
           </div>
           <Link
             href="mailto:zenithnoble354@gmail.com"
-            className="px-10 py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100 "
+            className="px-10 py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100"
           >
             <HoverEffect>Let&apos;s have a talk</HoverEffect>
           </Link>

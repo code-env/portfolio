@@ -98,7 +98,7 @@ const ContactForm = () => {
               )}
             />
           </div>
-          <button className="px-10 py-2 relative group lg:w-1/2 outline-none flex gap-3 items-center justify-center">
+          <button className="px-10 py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100 w-1/2 flex items-center justify-center gap-5">
             <HoverEffect>
               Let&apos;s go <ArrowUpRight className="w-4 h-4" />{" "}
             </HoverEffect>

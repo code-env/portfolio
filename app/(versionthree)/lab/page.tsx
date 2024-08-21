@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const Lab = () => {
   return (
-    <div className="h-96 flex flex-col items-center justify-center w-full ">
+    <div className="h-96 min-h-screen flex flex-col items-center justify-center w-full ">
       <TextGradient>
         Lab Coming soon... <br />{" "}
         <span className="opacity-0 cursor-default">Not</span>

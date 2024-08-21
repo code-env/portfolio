@@ -4,6 +4,7 @@ import lightLogo from "@/public/light.svg";
 import darkLogo from "@/public/dark.svg";
 import Image from "next/image";
 import Link from "next/link";
+import TextGradient from "../_version-three/text-gradient";
 
 const Logo = () => {
   const { theme } = useTheme();
@@ -11,7 +12,12 @@ const Logo = () => {
   const imageSrc = theme === "light" ? darkLogo : lightLogo;
   return (
     <Link href="/">
-      <Image src={imageSrc} height={100} width={50} alt="Bossadi Zenith Logo" />
+      <TextGradient className="2xl:text-2xl text-lg font-bold lg:text-2xl  relative">
+        {`2{bkm}`}
+        <span className="opacity-0 cursor-default pointer-events-none absolute">
+          Not
+        </span>
+      </TextGradient>
     </Link>
   );
 };

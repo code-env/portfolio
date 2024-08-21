@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/lib/themeToggle";
+import Logo from "./shared/logo";
 
 const Navbar = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -64,9 +65,7 @@ const Navbar = () => {
         }
       )}
     >
-      <Link href="/">
-        <h1 className="font-bold lg:text-2xl text-lg">{`2{bkm}`}</h1>
-      </Link>
+      <Logo />
       <ul className="items-center gap-2 hidden lg:flex">
         {routes.map((route, index) => {
           //some code here

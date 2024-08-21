@@ -80,6 +80,10 @@
   }
 }
 
+.push-top {
+  @apply py-40;
+}
+
 .pulse {
   animation: pulse 2s infinite;
 }

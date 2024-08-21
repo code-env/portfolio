@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const Writings = () => {
   return (
-    <div className="h-96 flex items-center justify-center w-full">
+    <div className="h-96 min-h-screen flex items-center justify-center w-full">
       <TextGradient>
         Writings Coming soon... <br />{" "}
         <span className="opacity-0 cursor-default">Not</span>
