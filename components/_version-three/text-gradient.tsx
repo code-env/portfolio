@@ -11,7 +11,7 @@ const TextGradient = ({ className, children, hand }: HeadingProps) => {
   return (
     <h1
       className={cn(
-        "font-extrabold  text-transparent text-4xl lg:text-7xl  bg-clip-text bg-gradient-to-r dark:from-zinc-500/50 dark:via-zinc-200 dark:to-zinc-500/50 from-zinc-900 via-zinc-700 to-zinc-900 text-center",
+        "font-extrabold  text-transparent bg-clip-text text-4xl lg:text-7xl 2xl:text-8xl bg-gradient-to-r dark:from-zinc-500/50 dark:via-zinc-200 dark:to-zinc-500/50 from-zinc-900 via-zinc-700 to-zinc-900 text-center",
         className
       )}
     >

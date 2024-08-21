@@ -3,10 +3,10 @@ import localFont from "next/font/local";
 
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar";
-import Socials from "@/components/socials";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import LenisLayout from "@/providers/lenis-provider";
 
 export const metadata: Metadata = {
@@ -50,19 +50,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <LenisLayout>
-        <body className="transition-colors duration-300 lg:px-20 px-5">
+        <body className="transition-colors duration-300 antialiased ">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />
-            <div
-              className={cn(
-                satoshi.className,
-                "py-24 mx-auto max-w-7xl w-full"
-              )}
-            >
-              <Socials />
-              <div className="flex w-full mt-32">{children}</div>
-              <Footer />
+            <div className={cn(satoshi.className, "w-full")}>
+              <div className="flex w-full">
+                {children}
+                <Analytics />
+              </div>
             </div>
+            <Footer />
           </ThemeProvider>
         </body>
       </LenisLayout>

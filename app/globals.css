@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 95%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -32,7 +32,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 240 0% 7%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -73,5 +73,29 @@
 
   .slowmo {
     @apply duration-300 transition-all;
+  }
+
+  .wrapper {
+    @apply max-w-7xl mx-auto w-full px-5 md:px-10 lg:px-20;
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgb(187, 187, 187);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(45, 45, 45, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
   }
 }
