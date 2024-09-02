@@ -34,6 +34,7 @@
     "react-hook-form": "^7.52.1",
     "react-spring": "^9.7.3",
     "sass": "^1.77.8",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",

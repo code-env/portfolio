@@ -14,7 +14,7 @@ const About = () => {
     "Astro",
   ];
   return (
-    <section className="h-fit text-background flex flex-col gap-8 relative">
+    <section className="h-fit text-background flex flex-col gap-8 relative  max-w-7xl mx-auto w-full">
       <HeaderText number="01" h1="About me" />
       <section className="flex gap-20 relative text-xl text-zinc-700">
         <section className="flex-1 relative flex flex-col gap-4">

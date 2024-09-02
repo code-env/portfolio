@@ -15,7 +15,7 @@ const Projects = () => {
 
   return (
     <div className="wrapper mt-20 relative">
-      <div className="flex flex-col justify-start items-start gap-2 absolute top-20">
+      <div className="flex flex-col justify-start items-start gap-2 lg:absolute top-20">
         <TextGradient className="lg:text-xl 2xl:text-2xl text-lg font-medium relative">
           Some of my doings <br />{" "}
           <span className="opacity-0 cursor-default pointer-events-none absolute">
@@ -82,7 +82,7 @@ const Card = ({ i, progress, range, targetScale }: CardProps) => {
           top: `calc(-5vh + ${i * 25}px)`,
         }}
         className={cn(
-          "flex flex-col relative -top-[10%] h-[500px] w-[90%] overflow-hidden rounded-3xl dark:bg-[#333] bg-[#999]"
+          "flex flex-col relative -top-[10%] h-[500px] lg:w-[90%] w-full overflow-hidden rounded-3xl dark:bg-[#333] bg-[#999]"
         )}
       >
         <motion.div

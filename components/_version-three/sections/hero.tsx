@@ -15,7 +15,7 @@ const Hero = () => {
             <Image
               src={zenith}
               className="object-cover grayscale shadow-[0_0_80px_inset] transition-all duration-150 hover:grayscale-0"
-              alt=""
+              alt="Bossadi Zenith"
               fill
               placeholder="blur"
             />
@@ -36,7 +36,7 @@ const Hero = () => {
               on the internet
             </TextGradient>
             <p className="text-xl max-w-lg text-center text-neutral-700 dark:text-neutral-400">
-              I&apos;m specialize at transforming design into functional,
+              I&apos;m specialized at transforming design into functional,
               high-performing web applications.
             </p>
           </div>
