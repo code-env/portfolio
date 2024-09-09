@@ -33,6 +33,13 @@ const ContactForm = () => {
   } = form;
 
   async function onSubmit(values: ContactFormType) {
+    const serverUrl = process.env.DISCORD_SERVER_URL;
+    const description = Object.entries(values)
+      .map((value) => `${value[0]}: ${value[1]}`)
+      .join("\n");
+
+    console.log(description, serverUrl);
+
     form.reset();
   }
 

@@ -26,11 +26,16 @@ const AboutMe = ({ meText }: { meText: string }) => {
   const words = meText.split(" ");
   const skillsTitle =
     "Here're some of the bad boys I've been working with lately".split(" ");
+
+  const whereIWork =
+    "I'm current working at Skaleway as a frontend lead, where I get to manage other frontend developers and optimizing user interfaces for our web applications for our clients for better use case scenario.".split(
+      " "
+    );
   return (
     <div className="max-w-6xl w-full mx-auto">
       <div className="h-[150vh]" ref={ref}>
-        <div className="sticky md:top-40 lg:top-60 flex gap-10">
-          <div className="flex-1 w-1/2  h-[500px]  relative group z-0 after:absolute after:top-0 after:h-full after:w-full after:border-border after:border after:-z-10 after:rounded-3xl">
+        <div className="sticky md:top-40 lg:top-60 flex gap-10 lg:flex-row flex-col">
+          <div className="lg:flex-1 lg:w-1/2 w-80  lg:h-[500px] h-80  relative group z-0 after:absolute after:top-0 after:h-full after:w-full after:border-border after:border after:-z-10 after:rounded-3xl">
             <div className="h-full w-full rounded-3xl rotate-[10deg] overflow-hidden group-hover:rotate-0 z-10 transition-all duration-150 ">
               <Image
                 alt="Bossadi Zenith"
@@ -40,8 +45,8 @@ const AboutMe = ({ meText }: { meText: string }) => {
               />
             </div>
           </div>
-          <div className="flex-1 flex flex-col gap-10 flex-wrap max-w-[50%]">
-            <h1 className="text-[25px] flex flex-wrap">
+          <div className="flex-1 flex flex-col gap-10 flex-wrap lg:max-w-[50%] w-full">
+            <h1 className="text-[20px] flex flex-wrap">
               {words.map((word, index) => {
                 const startingPoint = index / words.length;
                 const last = 1 / words.length;
@@ -57,6 +62,22 @@ const AboutMe = ({ meText }: { meText: string }) => {
                 );
               })}
             </h1>
+            <h2 className="text-lg flex flex-wrap">
+              {whereIWork.map((word, index) => {
+                const startingPoint = index / words.length;
+                const last = 1 / words.length;
+                const endingPoint = startingPoint + last;
+
+                return (
+                  <Word
+                    key={index}
+                    word={word}
+                    range={[startingPoint, endingPoint]}
+                    progress={scrollYProgress}
+                  />
+                );
+              })}
+            </h2>
             <div className="flex flex-col gap-5">
               <p>
                 {skillsTitle.map((word, index) => {
@@ -96,7 +117,7 @@ const AboutMe = ({ meText }: { meText: string }) => {
           </div>
         </div>
       </div>
-      <div className="h-screen"></div>
+      <div className="lg:h-screen"></div>
     </div>
   );
 };
@@ -110,7 +131,7 @@ const Word = ({
   range: [number, number];
   progress: MotionValue<number>;
 }) => {
-  const opacity = useTransform(progress, range, [0, 1]);
+  const opacity = useTransform(progress, range, [0, 0.8]);
 
   return (
     <span className="relative mx-1">
