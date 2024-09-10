@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import LenisLayout from "@/providers/lenis-provider";
+import { Toaster } from "@/providers/toast";
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +53,7 @@ export default function RootLayout({
       <LenisLayout>
         <body className="transition-colors duration-300 antialiased ">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Toaster />
             <Navbar />
             <div className={cn(satoshi.className, "w-full")}>
               <div className="flex w-full">

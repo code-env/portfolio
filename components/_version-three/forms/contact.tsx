@@ -3,6 +3,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowUpRight } from "lucide-react";
+import { toast } from "sonner";
 
 import {
   Form,
@@ -16,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import HoverEffect from "@/components/hover-effect";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactFormType, validateContactForm } from "@/validations";
-import { ArrowUpRight } from "lucide-react";
+import { sendMessage } from "@/action/contact";
 
 const ContactForm = () => {
   const form = useForm<ContactFormType>({
@@ -33,14 +35,13 @@ const ContactForm = () => {
   } = form;
 
   async function onSubmit(values: ContactFormType) {
-    const serverUrl = process.env.DISCORD_SERVER_URL;
-    const description = Object.entries(values)
-      .map((value) => `${value[0]}: ${value[1]}`)
-      .join("\n");
+    const res = await sendMessage(values);
 
-    console.log(description, serverUrl);
-
-    form.reset();
+    if (res?.data) {
+      form.reset();
+      toast.success(res.data.success);
+      return;
+    }
   }
 
   return (
@@ -62,6 +63,7 @@ const ContactForm = () => {
                       {...field}
                       className=""
                       placeholder="Enter your name"
+                      disabled={isSubmitting}
                     />
                   </FormControl>
                   <FormMessage />
@@ -79,6 +81,7 @@ const ContactForm = () => {
                       {...field}
                       className=""
                       placeholder="Enter your email"
+                      disabled={isSubmitting}
                     />
                   </FormControl>
                   <FormMessage />
@@ -98,6 +101,7 @@ const ContactForm = () => {
                       {...field}
                       className=""
                       placeholder="Enter your message"
+                      disabled={isSubmitting}
                     />
                   </FormControl>
                   <FormMessage />
@@ -105,7 +109,10 @@ const ContactForm = () => {
               )}
             />
           </div>
-          <button className="py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100 lg:w-1/2 w-full flex items-center justify-center gap-5">
+          <button
+            disabled={isSubmitting}
+            className="py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100 lg:w-1/2 w-full flex items-center justify-center gap-5"
+          >
             <HoverEffect>
               Let&apos;s go <ArrowUpRight className="w-4 h-4" />{" "}
             </HoverEffect>
