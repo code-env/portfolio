@@ -42,6 +42,8 @@ const ContactForm = () => {
       toast.success(res.data.success);
       return;
     }
+
+    toast.error("An error occurred while sending the message.");
   }
 
   return (
