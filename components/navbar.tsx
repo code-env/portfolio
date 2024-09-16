@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/lib/themeToggle";
+import { useRef, useState } from "react";
 import Logo from "./shared/logo";
 
 const Navbar = () => {
@@ -94,7 +93,6 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <ModeToggle />
     </motion.nav>
   );
 };
