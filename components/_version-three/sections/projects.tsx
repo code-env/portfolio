@@ -1,8 +1,10 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
 import { projects } from "@/constants";
-import { cn } from "@/lib/utils";
+import { Project } from "@/types";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import TextGradient from "../text-gradient";
 
@@ -36,8 +38,8 @@ const Projects = () => {
           return (
             <Card
               key={`p_${i}`}
-              i={i}
-              {...project}
+              index={i}
+          project={project}
               progress={scrollYProgress}
               range={[i * 0.25, 1]}
               targetScale={targetScale}
@@ -50,45 +52,55 @@ const Projects = () => {
 };
 
 interface CardProps {
-  i: number;
-  title: string;
-  description: string;
-  src: string;
-  url: string;
-  color: string;
   progress: MotionValue;
   range: [number, number];
   targetScale: number;
+  project: Project
+  index: number
 }
 
-const Card = ({ i, progress, range, targetScale }: CardProps) => {
+const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="h-screen flex items-center justify-center sticky top-0 group"
     >
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
+          top: `calc(-5vh + ${index * 25}px)`,
         }}
-        className={cn(
-          "flex flex-col relative -top-[10%] h-[500px] w-full overflow-hidden dark:bg-neutral-950 bg-white  border border-neutral-500/20 "
-        )}
+        className={
+          "flex flex-col relative -top-[10%] w-full overflow-hidden dark:bg-neutral-950 bg-white min-h-[750px] border-2 border-neutral-500/20 px-5 pt-20 gap-5"
+        }
       >
-        <motion.div
-          className="overflow-hidden h-full w-full"
-          style={{ scale: imageScale }}
-        ></motion.div>
+        <h1 className="font-semibold text-base dark:text-neutral-600 text-neutral-400">{project.title}</h1>
+        <p className="">{project.description}</p>
+        <div className="flex flex-1 group-odd:flex-row-reverse gap-10">
+          <div className="flex-1 ">nothing for now</div>
+          <div className="flex-[2] h-full bg-background">
+            <div className="overflow-hidden h-full w-full p-10">
+              <motion.div
+                style={{
+                  scale: imageScale
+                }}
+              >
+                <Image src={project.src} alt={`${siteConfig.name} ${project.title}`}
+                  placeholder="blur"
+                  className="object-contain grayscale hover:grayscale-0" />
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

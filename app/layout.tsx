@@ -1,21 +1,67 @@
-import "./globals.css";
-import localFont from "next/font/local";
-
-import { ThemeProvider } from "@/providers/theme-provider";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import LenisLayout from "@/providers/lenis-provider";
+
+import "@/styles/globals.css"
+import { cn } from "@/lib/utils";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { siteConfig } from "@/config/site";
 import { Toaster } from "@/providers/toast";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Bossadi Zenith",
-    template: " %s | Bossadi Zenith",
+    default: siteConfig.name,
+    template: ` %s | ${siteConfig.name}`,
   },
-  description: "I build things that live on the internet.",
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
+  keywords: [
+    "Portofio",
+    "Interactive",
+    "Frontend Developer",
+    "developer in africa",
+    "React",
+    "Tailwind CSS",
+    "Framer motion",
+    "Animation",
+    "Bossadi",
+    "Zenith",
+    "Nothing",
+  ],
+  creator: "Bossadi Zenith",
+  authors: [
+    {
+      name: "bossadizenith",
+      url: "https://bossadizenith.me",
+    },
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@bossadizenith",
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 const satoshi = localFont({

@@ -26,7 +26,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex items-center justify-center flex-col gap-10">
-          <div className="flex items-center justify-center flex-col gap-5  w-fit mx-auto">
+          <div className="flex items-center justify-center flex-col gap-5 w-fit mx-auto">
             <TextGradient>
               I build things that live{" "}
               <br
