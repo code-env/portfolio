@@ -1,11 +1,16 @@
 "use client";
 
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight, Github, Play } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+
+import Arrow from "@/components/shared/arrow";
+import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { projects } from "@/constants";
 import { Project } from "@/types";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
 import TextGradient from "../text-gradient";
 
 const Projects = () => {
@@ -39,7 +44,7 @@ const Projects = () => {
             <Card
               key={`p_${i}`}
               index={i}
-          project={project}
+              project={project}
               progress={scrollYProgress}
               range={[i * 0.25, 1]}
               targetScale={targetScale}
@@ -55,11 +60,12 @@ interface CardProps {
   progress: MotionValue;
   range: [number, number];
   targetScale: number;
-  project: Project
-  index: number
+  project: Project;
+  index: number;
 }
 
 const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -80,23 +86,89 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
           top: `calc(-5vh + ${index * 25}px)`,
         }}
         className={
-          "flex flex-col relative -top-[10%] w-full overflow-hidden dark:bg-neutral-950 bg-white min-h-[750px] border-2 border-neutral-500/20 px-5 pt-20 gap-5"
+          "flex flex-col relative -top-[10%] w-full overflow-hidden dark:bg-neutral-950 bg-white lg:min-h-[687px] min-h-fit border-2 border-neutral-500/20 px-10 pt-20 gap-10"
         }
       >
-        <h1 className="font-semibold text-base dark:text-neutral-600 text-neutral-400">{project.title}</h1>
-        <p className="">{project.description}</p>
-        <div className="flex flex-1 group-odd:flex-row-reverse gap-10">
-          <div className="flex-1 ">nothing for now</div>
-          <div className="flex-[2] h-full bg-background">
-            <div className="overflow-hidden h-full w-full p-10">
+        <div className="flex flex-col gap-5">
+          <h1 className="font-semibold text-base dark:text-neutral-600 text-neutral-400">
+            {project.title}
+          </h1>
+          <p className="lg:text-5xl text-3xl font-semibold">
+            {project.oneLiner}
+          </p>
+        </div>
+        <div className="flex lg:flex-row flex-col flex-1 lg:group-even:flex-row-reverse group-even:flex-col  gap-10">
+          <div className="flex-1 flex flex-col gap-5">
+            <p className="text-lg font-medium">Things used for the</p>
+
+            <ul className="grid grid-cols-2 gap-3">
+              {project.things.map((thing, i) => (
+                <motion.li
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, amount: 1 }}
+                  transition={{
+                    delay: i * 0.1,
+                  }}
+                  key={`t_${i}`}
+                  className="flex items-center gap-1 text-neutral-700 dark:text-neutral-400"
+                >
+                  <Play className="w-2 h-3" />
+                  <span>{thing}</span>
+                </motion.li>
+              ))}
+            </ul>
+            <div className="flex items-center gap-5">
+              <Link
+                href={project.codebase}
+                target="_blank"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                  className: "min-w-[40px]",
+                })}
+              >
+                <Github className="h-4 w-4" />
+              </Link>
+              <Link
+                href={project.url}
+                target="_blank"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                  className: "min-w-[40px]",
+                })}
+              >
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <Link
+              href={`/projects/${project.title.toLowerCase()}`}
+              target="_blank"
+              className={buttonVariants({
+                variant: "outline",
+                className: "flex items-center gap-2",
+              })}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <span>Learn more</span>
+              <Arrow isHovered={isHovered} />
+            </Link>
+          </div>
+          <div className="flex-[2] h-full bg-background rounded-t-lg border border-b-0">
+            <div className="overflow-hidden flex items-center justify-center w-full p-10 lg:h-[493.176px] h-fit">
               <motion.div
                 style={{
-                  scale: imageScale
+                  scale: imageScale,
                 }}
               >
-                <Image src={project.src} alt={`${siteConfig.name} ${project.title}`}
+                <Image
+                  src={project.src}
+                  alt={`${siteConfig.name} ${project.title}`}
                   placeholder="blur"
-                  className="object-contain grayscale hover:grayscale-0" />
+                  className="grayscale hover:grayscale-0 rounded-lg"
+                />
               </motion.div>
             </div>
           </div>

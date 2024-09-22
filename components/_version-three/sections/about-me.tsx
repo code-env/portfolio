@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import zenith from "@/public/z.jpg";
-import Image from "next/image";
-import { Play } from "lucide-react";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import { Play } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
+
+import zenith from "@/public/z.jpg";
 
 const AboutMe = ({ meText }: { meText: string }) => {
   const ref = useRef<HTMLDivElement | null>(null);

@@ -5,9 +5,13 @@ import Logo from "./shared/logo";
 import { projects } from "@/constants";
 import { ModeToggle } from "@/lib/themeToggle";
 import Link from "next/link";
+import Arrow from "./shared/arrow";
+import { useState } from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredIndex, setIsHoveredIndex] = useState(-1);
 
   const socials = [
     {
@@ -27,15 +31,21 @@ const Footer = () => {
     },
   ];
 
+  const handleHover = (index: number) => {
+    if (index === isHoveredIndex) {
+      setIsHovered(true);
+    }
+  };
+
   return (
-    <footer className="text-background px-10 xl:px-0">
+    <footer className="text-background px-8 xl:px-0">
       <div className="justify-between flex flex-col lg:flex-row gap-5 border lg:wrapper text-neutral-700 mb-5">
-        <div className="flex-1 flex items-start py-20 lg:border-r border-b lg:border-b-0 border-dashed">
+        <div className="flex-1 flex items-start lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0 border-dashed">
           <Logo />
         </div>
-        <ul className="flex-1  border-dashed py-20 lg:border-r border-b lg:border-b-0  dark:border-neutral-700/30 border-neutral-300/90 text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">
+        <ul className="flex-1  border-dashed lg:py-20 p-10 lg:px-0  lg:border-r border-b lg:border-b-0 text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">
           <li className="uppercase dark:text-neutral-700 text-neutral-700/50 font-semibold text-sm mb-2">
-            Projects
+            Crafts
           </li>
           {projects.map((social, index) => {
             //some code
@@ -43,7 +53,7 @@ const Footer = () => {
             return <li key={index}>{social.title}</li>;
           })}
         </ul>
-        <ul className="flex-1  border-dashed py-20 lg:border-r border-b lg:border-b-0 dark:border-neutral-700/30 border-neutral-300/90 text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">
+        <ul className="flex-1  border-dashed lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">
           <li className="uppercase dark:text-neutral-700 text-neutral-700/50 font-semibold text-sm mb-2">
             Contact
           </li>
@@ -51,28 +61,35 @@ const Footer = () => {
             //some code
             return (
               <li key={index}>
-                {" "}
                 <Link
                   href={social.link}
                   target="_blank"
                   key={index}
                   className="flex items-center gap-2"
+                  onMouseEnter={() => {
+                    setIsHoveredIndex(index);
+                    setIsHovered(true);
+                  }}
+                  onMouseLeave={() => setIsHovered(false)}
                 >
                   <span>{social.name}</span>
-                  <span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </span>
+
+                  <Arrow
+                    isHovered={isHoveredIndex === index && isHovered}
+                    angle={-45}
+                  />
                 </Link>
               </li>
             );
           })}
         </ul>
-        <div className="flex-1 py-20 flex flex-col gap-3 text-neutral-700 dark:text-neutral-400">
+        <div className="flex-1 lg:py-20 p-10 lg:px-0 flex flex-col gap-3 text-neutral-700 dark:text-neutral-400">
           <ModeToggle />
           <p>
             <span>&copy;</span> <span>{currentYear}</span>{" "}
-            <span>Bossadi zenith all rights reserved.</span>
+            <span>Bossadi zenith all rights reserved.</span>Strawberry
           </p>
+          <span className="text-xs mt-2">Made with 🩶 from localhost.</span>
         </div>
       </div>
     </footer>
