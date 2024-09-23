@@ -89,7 +89,7 @@ const Footer = () => {
             <span>&copy;</span> <span>{currentYear}</span>{" "}
             <span>Bossadi zenith all rights reserved.</span>Strawberry
           </p>
-          <span className="text-xs mt-2">Made with 🩶 from localhost.</span>
+          <span className="text-xs mt-2">Made with 🩶 while chiling from localhost.</span>
         </div>
       </div>
     </footer>
