@@ -87,7 +87,7 @@ const Footer = () => {
           <ModeToggle />
           <p>
             <span>&copy;</span> <span>{currentYear}</span>{" "}
-            <span>Bossadi zenith all rights reserved.</span>Strawberry
+            <span>Bossadi zenith all rights reserved.</span>
           </p>
           <span className="text-xs mt-2">Made with 🩶 while chiling from localhost.</span>
         </div>
