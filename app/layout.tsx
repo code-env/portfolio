@@ -1,9 +1,11 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import LenisLayout from "@/providers/lenis-provider";
 
 import "@/styles/globals.css";
+
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -89,6 +91,8 @@ const satoshi = localFont({
   ],
 });
 
+const trackingUrl = process.env.NEXT_PUBLIC_TRACKING_URL;
+
 export default function RootLayout({
   children,
 }: {
@@ -105,6 +109,11 @@ export default function RootLayout({
               <div className="flex w-full">
                 {children}
                 <Analytics />
+                <Script
+                  defer
+                  data-domain="bossadizenith.me"
+                  src={trackingUrl}
+                />
               </div>
             </div>
             <Footer />
