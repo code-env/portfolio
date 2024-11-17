@@ -124,7 +124,8 @@ const Navbar = () => {
             {routes.map((route, index) => {
               //some code here
 
-              const isActiveRoute = pathname === route.path;
+              const isActiveRoute =
+                pathname === route.path || pathname.includes(route.path);
 
               return (
                 <li
@@ -136,7 +137,7 @@ const Navbar = () => {
                     className={cn(
                       "capitalize hover:dark:text-neutral-200 hover:text-neutral-400  duration-300 transition-all relative",
                       {
-                        "dark:text-neutral-200 text-neutral-700 font-bold after:absolute after:h-2 after:w-2 after:dark:bg-neutral-200 after:bg-neutral-700 after:left-0 after:right-0 after:mx-auto after:rounded-full after:-bottom-2 ":
+                        "dark:text-neutral-200 text-neutral-700 font-bold after:absolute after:w-1 after:h-1 after:dark:bg-neutral-200 after:bg-neutral-700 after:left-0 after:right-0 after:mx-auto after:rounded-full after:-bottom-2 ":
                           isActiveRoute,
                       }
                     )}

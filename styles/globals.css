@@ -78,6 +78,26 @@
   .wrapper {
     @apply max-w-7xl mx-auto w-full px-5 md:px-10 lg:px-20;
   }
+
+  .ch-code-wrapper,
+  .ch-code {
+    color: var(--shiki-color-text) !important;
+  }
+
+  .ch-codegroup .ch-editor-button,
+  .ch-codeblock .ch-code-button {
+    display: none;
+    color: var(--ch-icon-text);
+  }
+
+  .ch-codegroup:hover .ch-editor-button,
+  .ch-codeblock:hover .ch-code-button {
+    display: block;
+  }
+
+  div.ch-editor-tab-active {
+    color: var(--foreground);
+  }
 }
 
 .push-top {

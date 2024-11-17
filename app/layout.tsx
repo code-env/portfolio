@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import LenisLayout from "@/providers/lenis-provider";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";

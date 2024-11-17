@@ -19,9 +19,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "content-collections": ["./.content-collections/generated"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ui/theme.jsx", "lib/limitor.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/ui/theme.jsx",
+    "lib/limitor.js"
+  ],
   "exclude": ["node_modules"]
 }

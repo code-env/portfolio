@@ -1,0 +1,187 @@
+{
+  "name": "css-variables",
+  "type": "css",
+  "colors": {
+    "editor.foreground": "var(--foreground)",
+    "editor.background": "var(--background)",
+
+    "editorGroupHeader.tabsBackground": "var(--secondary)",
+    "xtab.activeForeground": "var(--primary)",
+    "tab.activeBackground": "var(--secondary)",
+    "tab.inactiveForeground": "var(--muted-foreground)",
+    "tab.inactiveBackground": "var(--muted)",
+    "icon.foreground": "var(--foreground)",
+
+    "tab.border": "var(--border)",
+    "tab.activeBorder": "var(--primary)",
+
+    "editorGroup.border": "var(--border)",
+    "input.border": "var(--border)",
+    "sideBar.border": "var(--border)"
+  },
+  "tokenColors": [
+    {
+      "settings": {
+        "foreground": "var(--foreground)"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator.accessor",
+        "meta.group.braces.round.function.arguments",
+        "meta.template.expression",
+        "markup.fenced_code meta.embedded.block"
+      ],
+      "settings": {
+        "foreground": "var(--foreground)"
+      }
+    },
+    {
+      "scope": "emphasis",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": ["strong", "markup.heading.markdown", "markup.bold.markdown"],
+      "settings": {
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["markup.italic.markdown"],
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "meta.link.inline.markdown",
+      "settings": {
+        "fontStyle": "underline",
+        "foreground": "var(--primary)"
+      }
+    },
+    {
+      "scope": ["string", "markup.fenced_code", "markup.inline"],
+      "settings": {
+        "foreground": "var(--accent-foreground)"
+      }
+    },
+    {
+      "scope": ["comment", "string.quoted.docstring.multi"],
+      "settings": {
+        "foreground": "var(--muted-foreground)"
+      }
+    },
+    {
+      "scope": [
+        "constant.numeric",
+        "constant.language",
+        "constant.other.placeholder",
+        "constant.character.format.placeholder",
+        "variable.language.this",
+        "variable.other.object",
+        "variable.other.class",
+        "variable.other.constant",
+        "meta.property-name",
+        "meta.property-value",
+        "support"
+      ],
+      "settings": {
+        "foreground": "var(--primary)"
+      }
+    },
+    {
+      "scope": [
+        "keyword",
+        "storage.modifier",
+        "storage.type",
+        "storage.control.clojure",
+        "entity.name.function.clojure",
+        "entity.name.tag.yaml",
+        "support.function.node",
+        "support.type.property-name.json",
+        "punctuation.separator.key-value",
+        "punctuation.definition.template-expression"
+      ],
+      "settings": {
+        "foreground": "var(--secondary-foreground)"
+      }
+    },
+    {
+      "scope": "variable.parameter.function",
+      "settings": {
+        "foreground": "var(--accent-foreground)"
+      }
+    },
+    {
+      "scope": [
+        "support.function",
+        "entity.name.type",
+        "entity.other.inherited-class",
+        "meta.function-call",
+        "meta.instance.constructor",
+        "entity.other.attribute-name",
+        "entity.name.function",
+        "constant.keyword.clojure"
+      ],
+      "settings": {
+        "foreground": "var(--primary)"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.tag",
+        "string.quoted",
+        "string.regexp",
+        "string.interpolated",
+        "string.template",
+        "string.unquoted.plain.out.yaml",
+        "keyword.other.template"
+      ],
+      "settings": {
+        "foreground": "var(--accent-foreground)"
+      }
+    },
+    {
+      "scope": [
+        "punctuation.definition.arguments",
+        "punctuation.definition.dict",
+        "punctuation.separator",
+        "meta.function-call.arguments"
+      ],
+      "settings": {
+        "foreground": "var(--muted-foreground)"
+      }
+    },
+    {
+      "name": "[Custom] Markdown links",
+      "scope": [
+        "markup.underline.link",
+        "punctuation.definition.metadata.markdown"
+      ],
+      "settings": {
+        "foreground": "var(--primary)"
+      }
+    },
+    {
+      "name": "[Custom] Markdown list",
+      "scope": ["beginning.punctuation.definition.list.markdown"],
+      "settings": {
+        "foreground": "var(--accent-foreground)"
+      }
+    },
+    {
+      "name": "[Custom] Markdown punctuation definition brackets",
+      "scope": [
+        "punctuation.definition.string.begin.markdown",
+        "punctuation.definition.string.end.markdown",
+        "string.other.link.title.markdown",
+        "string.other.link.description.markdown"
+      ],
+      "settings": {
+        "foreground": "var(--secondary-foreground)"
+      }
+    }
+  ]
+}
