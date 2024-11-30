@@ -142,7 +142,9 @@ export const staticCoverImage = async (
 
   await copy(source, sha256sum, target);
 
-  return `${resourcePath}/${directory}/${image}`;
+  const newPath = `${resourcePath}/${directory}${image}`;
+
+  return newPath;
 };
 
 export default staticImages;

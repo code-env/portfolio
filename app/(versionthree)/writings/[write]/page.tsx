@@ -70,7 +70,7 @@ const Page = async ({ params }: PageProps) => {
   }
 
   return (
-    <div className="py-56 min-h-screen px-4 sm:px-0 max-w-5xl mx-auto w-full">
+    <div className="py-56 min-h-screen px-4 sm:px-0 max-w-3xl mx-auto w-full">
       <Writing writing={writing} />
     </div>
   );

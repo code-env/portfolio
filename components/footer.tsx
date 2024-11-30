@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, Github, Linkedin, X } from "lucide-react";
 import Logo from "./shared/logo";
-import { projects } from "@/constants";
+import { allProjects } from "content-collections";
 import { ModeToggle } from "@/lib/themeToggle";
 import Link from "next/link";
 import Arrow from "./shared/arrow";
@@ -47,10 +47,9 @@ const Footer = () => {
           <li className="uppercase dark:text-neutral-700 text-neutral-700/50 font-semibold text-sm mb-2">
             Crafts
           </li>
-          {projects.map((social, index) => {
+          {allProjects.map((project, index) => {
             //some code
-
-            return <li key={index}>{social.title}</li>;
+            return <li key={index}>{project.title}</li>;
           })}
         </ul>
         <ul className="flex-1  border-dashed lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">

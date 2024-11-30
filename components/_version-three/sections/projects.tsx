@@ -5,12 +5,11 @@ import { ArrowUpRight, Github, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { allProjects, Project } from "content-collections";
 
 import Arrow from "@/components/shared/arrow";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import { projects } from "@/constants";
-import { Project } from "@/types";
 import TextGradient from "../text-gradient";
 
 const Projects = () => {
@@ -19,6 +18,10 @@ const Projects = () => {
     target: container,
     offset: ["start start", "end end"],
   });
+
+  const top4Projects = allProjects.slice(0, 4);
+
+  const remainingProjects = allProjects.length - top4Projects.length;
 
   return (
     <div className="wrapper mt-20 relative">
@@ -38,16 +41,18 @@ const Projects = () => {
         ref={container}
         className="flex flex-col gap-5 md:gap-10 lg:gap-14 overflow-x-clip"
       >
-        {projects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.05;
+        {top4Projects.map((project, i) => {
+          const targetScale = 1 - (top4Projects.length - i) * 0.05;
           return (
-            <Card
+            <ProjectCard
               key={`p_${i}`}
               index={i}
               project={project}
               progress={scrollYProgress}
               range={[i * 0.25, 1]}
               targetScale={targetScale}
+              projectLength={top4Projects.length}
+              remainingProject={remainingProjects}
             />
           );
         })}
@@ -56,16 +61,27 @@ const Projects = () => {
   );
 };
 
-interface CardProps {
+interface ProjectCardProps {
   progress: MotionValue;
   range: [number, number];
   targetScale: number;
   project: Project;
   index: number;
+  remainingProject: number;
+  projectLength: number;
 }
 
-const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
+const ProjectCard = ({
+  progress,
+  range,
+  targetScale,
+  project,
+  index,
+  remainingProject,
+  projectLength,
+}: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [allHovered, setAllHovered] = useState(false);
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -78,7 +94,7 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 group"
+      className="h-screen flex items-center justify-center sticky top-0 group flex-col"
     >
       <motion.div
         style={{
@@ -102,7 +118,7 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
             <p className="text-lg font-medium">Things used for the</p>
 
             <ul className="grid grid-cols-2 gap-3">
-              {project.things.map((thing, i) => (
+              {project.tags.map((thing, i) => (
                 <motion.li
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -120,7 +136,7 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
             </ul>
             <div className="flex items-center gap-5">
               <Link
-                href={project.codebase}
+                href={project.githubUrl ?? ""}
                 target="_blank"
                 className={buttonVariants({
                   variant: "outline",
@@ -131,7 +147,7 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
                 <Github className="h-4 w-4" />
               </Link>
               <Link
-                href={project.url}
+                href={project.deployedUrl ?? ""}
                 target="_blank"
                 className={buttonVariants({
                   variant: "outline",
@@ -143,8 +159,7 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
               </Link>
             </div>
             <Link
-              href={`/projects/${project.title.toLowerCase()}`}
-              target="_blank"
+              href={project.url}
               className={buttonVariants({
                 variant: "outline",
                 className: "flex items-center gap-2",
@@ -162,10 +177,14 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
                 style={{
                   scale: imageScale,
                 }}
+                className="relative"
               >
                 <Image
-                  src={project.src}
+                  src={project.image?.url ?? ""}
+                  blurDataURL={project.image?.blurDataURL}
                   alt={`${siteConfig.name} ${project.title}`}
+                  width={600}
+                  height={500}
                   placeholder="blur"
                   className="grayscale hover:grayscale-0 rounded-lg"
                 />
@@ -174,6 +193,23 @@ const Card = ({ progress, range, targetScale, project, index }: CardProps) => {
           </div>
         </div>
       </motion.div>
+      {projectLength - 1 === index && remainingProject > 0 && (
+        <div className="absolute bottom-28">
+          <Link
+            href={project.url}
+            target="_blank"
+            className={buttonVariants({
+              variant: "outline",
+              className: "flex items-center gap-2",
+            })}
+            onMouseEnter={() => setAllHovered(true)}
+            onMouseLeave={() => setAllHovered(false)}
+          >
+            <span>View {remainingProject} project(s)</span>
+            <Arrow isHovered={allHovered} />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
