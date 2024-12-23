@@ -1,27 +1,41 @@
 "use client";
 
+import { Project } from "content-collections";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { allProjects, Project } from "content-collections";
 
 import Arrow from "@/components/shared/arrow";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import TextGradient from "../text-gradient";
 
-const Projects = () => {
+interface ProjectsProps {
+  projects: Project[];
+  remaining?: boolean;
+  take?: number;
+  showAll?: boolean;
+  length: number;
+}
+
+const Projects = ({
+  projects,
+  remaining,
+  take,
+  showAll,
+  length,
+}: ProjectsProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
-  const top4Projects = allProjects.slice(0, 4);
+  const allProjects = showAll ? projects : projects.slice(0, take);
 
-  const remainingProjects = allProjects.length - top4Projects.length;
+  const remainingProject = length - Number(take);
 
   return (
     <div className="wrapper mt-20 relative">
@@ -41,8 +55,8 @@ const Projects = () => {
         ref={container}
         className="flex flex-col gap-5 md:gap-10 lg:gap-14 overflow-x-clip"
       >
-        {top4Projects.map((project, i) => {
-          const targetScale = 1 - (top4Projects.length - i) * 0.05;
+        {allProjects.map((project, i) => {
+          const targetScale = 1 - (allProjects.length - i) * 0.05;
           return (
             <ProjectCard
               key={`p_${i}`}
@@ -51,8 +65,8 @@ const Projects = () => {
               progress={scrollYProgress}
               range={[i * 0.25, 1]}
               targetScale={targetScale}
-              projectLength={top4Projects.length}
-              remainingProject={remainingProjects}
+              projectLength={projects.length}
+              remainingProject={remainingProject}
             />
           );
         })}

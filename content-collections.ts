@@ -8,6 +8,7 @@ import readingTime from "reading-time";
 import prettycode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { codeImport } from "remark-code-import";
+import { visit } from "unist-util-visit";
 import remarkGfm from "remark-gfm";
 import resolveImageBlurDataURL from "./lib/imageBlurDataURL";
 import staticImages, { staticCoverImage } from "./lib/static-images";
@@ -39,6 +40,19 @@ type ImageParams = {
   image: string;
   directory: string;
   content: "writings" | "projects" | "lab";
+};
+
+const codeSetup = () => (tree: any) => {
+  visit(tree, (node) => {
+    if (node?.type === "element" && node?.tagName === "pre") {
+      const [codeEl] = node.children;
+      if (codeEl.tagName !== "code") {
+        return;
+      }
+
+      node.__rawString__ = codeEl.children?.[0].value;
+    }
+  });
 };
 
 async function collectImageInformation({
@@ -78,7 +92,6 @@ async function collectImageInformation({
       directory,
       image
     );
-
     return { url, blurDataURL };
   }
 }
@@ -168,16 +181,17 @@ const projects = defineCollection({
         appender.directory("./components", directory);
       },
       rehypePlugins: [
+        codeSetup,
         rehypeSlug,
-        prettycode,
         [
+          prettycode,
           staticImages,
           {
+            theme: "github-dark",
             publicDir: path.join("public", "projects"),
             resourcePath: "/projects",
             sourceRoot: projectsDirectory,
           },
-          theme,
         ],
       ],
       remarkPlugins: [remarkGfm, codeImport],
