@@ -137,12 +137,18 @@ const Navbar = () => {
                     className={cn(
                       "capitalize hover:dark:text-neutral-200 hover:text-neutral-400  duration-300 transition-all relative",
                       {
-                        "dark:text-neutral-200 text-neutral-700 font-bold after:absolute after:w-1 after:h-1 after:dark:bg-neutral-200 after:bg-neutral-700 after:left-0 after:right-0 after:mx-auto after:rounded-full after:-bottom-2 ":
+                        "dark:text-neutral-200 text-neutral-700 font-bold ":
                           isActiveRoute,
                       }
                     )}
                   >
                     {route.name}
+                    {isActiveRoute && (
+                      <motion.span
+                        layoutId="active-route-indicator"
+                        className="absolute w-1 h-1 dark:bg-neutral-200 bg-neutral-700 left-0 right-0 mx-auto rounded-full -bottom-2"
+                      />
+                    )}
                   </Link>
                   {routes.length - 1 !== index && <span>/</span>}
                 </li>
