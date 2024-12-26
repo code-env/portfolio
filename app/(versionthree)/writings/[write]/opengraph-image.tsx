@@ -105,7 +105,7 @@ export default async function Image({ params }: Props) {
               tw="rounded-full border-2 border-stone-700"
               width="110"
               height="110"
-              src="https://avatars.githubusercontent.com/u/493333"
+              src="https://avatars.githubusercontent.com/u/135658967"
             />
             <p tw="ml-6 text-4xl font-semibold text-stone-400">
               Bossadi Zenith

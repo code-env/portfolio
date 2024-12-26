@@ -76,22 +76,10 @@ const Navbar = () => {
   };
 
   const routes = [
-    {
-      name: "about",
-      path: "/about",
-    },
-    {
-      name: "lab",
-      path: "/lab",
-    },
-    {
-      name: "writings",
-      path: "/writings",
-    },
-    {
-      name: "contact",
-      path: "/contact",
-    },
+    { name: "about", path: "/about" },
+    { name: "lab", path: "/lab" },
+    { name: "writings", path: "/writings" },
+    { name: "contact", path: "/contact" },
   ];
 
   const handleMobileToogle = () => setIsMobileMenuOpen((prev) => !prev);
@@ -113,7 +101,7 @@ const Navbar = () => {
           }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "fixed px-4 lg:px-0 right-10 left-10 lg:left-0 lg:right-0 top-3 lg:max-w-5xl lg:w-full mx-auto h-14 border-b border-border backdrop-blur bg-background/50 justify-between items-center flex transition-all duration-200 text-neutral-700  z-20",
+            "fixed px-4 lg:px-0 right-10 left-10 lg:left-0 lg:right-0 top-3 lg:max-w-5xl lg:w-full mx-auto h-14 border-b border-border backdrop-blur bg-background/50 justify-between items-center flex transition-all duration-200 text-neutral-700  z-20 overflow-hidden",
             {
               "lg:px-10 border": !isHidden,
             }
@@ -235,9 +223,9 @@ const Navbar = () => {
                       <Link
                         href={route.path}
                         className={cn(
-                          "capitalize  duration-300 transition-all relative",
+                          "capitalize  duration-300 transition-all relative dark:text-neutral-200 text-neutral-900 hover:opacity-80",
                           {
-                            "text-neutral-700 font-bold": isActiveRoute,
+                            "font-bold": isActiveRoute,
                           }
                         )}
                       >

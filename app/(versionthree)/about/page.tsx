@@ -13,10 +13,9 @@ const About = () => {
   const bornDate = 2004;
   const age = currentYear - bornDate;
 
-  const aboutMeText = `I'm Bossadi Zenith  and I'm ${age} but others call me ['code-env', 'The!nvestor', 'Zee'] and I love building things that live on the internet. My interest In web dev started in 2020 when I participated that the TiC summit hackathon in 2021 and since then boom`;
   return (
     <div className="min-h-screen w-full py-32 md:py-40 lg:py-60 lg:px-0 px-5 z-0 relative overflow-clip">
-      <AboutMe meText={aboutMeText} />
+      <AboutMe />
     </div>
   );
 };

@@ -34,16 +34,16 @@ export default async function Image({ params }: Props) {
     );
   }
 
-  const ralewayBold = fetch(
-    new URL("content/fonts/Raleway-Bold.ttf", import.meta.url)
+  const SatoshiLight = fetch(
+    new URL("../../../../fonts/Satoshi-Light.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
-  const cabinSemiBold = fetch(
-    new URL("content/fonts/Cabin-SemiBold.ttf", import.meta.url)
+  const Satoshibold = fetch(
+    new URL("../../../../fonts/Satoshi-Bold.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
-  const cabinMedium = fetch(
-    new URL("content/fonts/Cabin-Medium.ttf", import.meta.url)
+  const SatoshiMedium = fetch(
+    new URL("../../../../fonts/Satoshi-Bold.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -117,21 +117,22 @@ export default async function Image({ params }: Props) {
       fonts: [
         {
           name: "Raleway",
-          data: await ralewayBold,
+          data: await SatoshiLight,
           style: "normal",
           weight: 700,
         },
+
         {
           name: "Cabin",
-          data: await cabinMedium,
+          data: await Satoshibold,
           style: "normal",
-          weight: 400,
+          weight: 600,
         },
         {
           name: "Cabin",
-          data: await cabinSemiBold,
+          data: await SatoshiMedium,
           style: "normal",
-          weight: 600,
+          weight: 400,
         },
       ],
     }

@@ -1,12 +1,12 @@
 "use client";
 
-import { ArrowUpRight, Github, Linkedin, X } from "lucide-react";
-import Logo from "./shared/logo";
-import { allProjects } from "content-collections";
 import { ModeToggle } from "@/lib/themeToggle";
+import { allProjects } from "content-collections";
+import { Github, Linkedin, X } from "lucide-react";
 import Link from "next/link";
-import Arrow from "./shared/arrow";
 import { useState } from "react";
+import Arrow from "./shared/arrow";
+import Logo from "./shared/logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,7 +38,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-background px-8 xl:px-0">
+    <footer className="text-background px-4 xl:px-0">
       <div className="justify-between flex flex-col lg:flex-row gap-5 border lg:wrapper text-neutral-700 mb-5">
         <div className="flex-1 flex items-start lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0 border-dashed">
           <Logo />
