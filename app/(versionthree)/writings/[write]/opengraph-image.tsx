@@ -1,4 +1,3 @@
-import { allWritings } from "content-collections";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -7,8 +6,6 @@ type params = {
   write: string;
 };
 
-// Image metadata
-export const alt = "About Acme";
 export const size = {
   width: 1200,
   height: 630,
@@ -20,52 +17,33 @@ export const contentType = "image/png";
 export default async function Image({ params }: { params: params }) {
   const slug = params.write;
 
-  // const writing = allWritings.find(
-  //   (write) => write._meta.path === slug && write.isPublished
-  // );
-
-  // if (!writing) {
-  //   return new Response(
-  //     JSON.stringify({
-  //       message: "Could not find writing with slug: " + slug,
-  //     }),
-  //     {
-  //       status: 404,
-  //     }
-  //   );
-  // }
-
-  // Font
-  const interSemiBold = fetch(
+  const satoshi = fetch(
     new URL("@/fonts/Satoshi-Black.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
-      <div
-        style={{
-          fontSize: 128,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {slug} {allWritings.length}
+      <div tw="w-full h-full p-4 bg-white flex">
+        <div tw="bg-white h-full w-full flex items-center justify-center flex-col">
+          <div tw="flex-1 w-full flex items-center justify-center text-4xl">
+            {slug.split("-").join(" ")}
+          </div>
+          <div tw="flex justify-end w-full items-center gap-2">
+            <p>@bossadizenith</p>{" "}
+            <img
+              src="https://avatars.githubusercontent.com/u/135658967"
+              tw="w-14 h-14 rounded-full border ml-2"
+            />
+          </div>
+        </div>
       </div>
     ),
-    // ImageResponse options
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
       ...size,
       fonts: [
         {
           name: "Inter",
-          data: await interSemiBold,
+          data: await satoshi,
           style: "normal",
           weight: 400,
         },
