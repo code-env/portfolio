@@ -7,7 +7,7 @@ import { createImageUrl } from "@/lib/images";
 import { type Writing } from "content-collections";
 
 type Params = {
-  slug: string;
+  write: string;
 };
 
 type Props = {
@@ -20,13 +20,13 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image({ params }: Props) {
-  const slug = params.slug;
+  const write = params.write;
   // @ts-ignore i don't know how to fix typing here
-  const writing: Writing = allWritings.find((p) => slug === p._meta.path);
+  const writing: Writing = allWritings.find((p) => write === p._meta.path);
   if (!writing) {
     return new Response(
       JSON.stringify({
-        message: "Could not find writing with slug: " + slug,
+        message: "Could not find writing with write: " + write,
       }),
       {
         status: 404,
