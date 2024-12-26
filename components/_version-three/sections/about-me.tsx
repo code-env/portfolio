@@ -178,7 +178,7 @@ const AboutMe = () => {
         <LinkTo href="https://withcardlift.com" target="_blank">
           Cardlift
         </LinkTo>{" "}
-        on on of their products called{" "}
+        on one of their products called{" "}
         <LinkTo href="https://spentfinance.com" target="_blank">
           Spentfinance
         </LinkTo>
