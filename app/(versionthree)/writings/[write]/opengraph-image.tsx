@@ -1,4 +1,4 @@
-import { allWritings } from "@/.content-collections/generated";
+import { allWritings } from "content-collections";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -18,7 +18,7 @@ export const contentType = "image/png";
 
 // Image generation
 export default async function Image({ params }: { params: params }) {
-  // const slug = params.write;
+  const slug = params.write;
 
   // const writing = allWritings.find(
   //   (write) => write._meta.path === slug && write.isPublished
@@ -54,7 +54,7 @@ export default async function Image({ params }: { params: params }) {
           justifyContent: "center",
         }}
       >
-        Nothing title
+        {slug} {allWritings.length}
       </div>
     ),
     // ImageResponse options
