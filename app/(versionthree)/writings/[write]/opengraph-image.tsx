@@ -54,7 +54,7 @@ export default async function Image({ params }: { params: params }) {
           justifyContent: "center",
         }}
       >
-        About Acme
+        <h1>{writing.title}</h1>
       </div>
     ),
     // ImageResponse options
