@@ -26,10 +26,10 @@
 //   ];
 
 //   const skillsTitle =
-//     "Here're some of the bad boys I've been working with lately".split(" ");
+//     "Here&apos;re some of the bad boys I&apos;ve been working with lately".split(" ");
 
 //   const whereIWork =
-//     "I'm current working at Skaleway as a frontend lead, where I get to manage other frontend developers and optimizing user interfaces for our web applications for our clients for better use case scenario.".split(
+//     "I&apos;m current working at Skaleway as a frontend lead, where I get to manage other frontend developers and optimizing user interfaces for our web applications for our clients for better use case scenario.".split(
 //       " "
 //     );
 //   return (
@@ -155,17 +155,19 @@ const AboutMe = () => {
         />
       </div>
       <h1 className="mt-4">
-        I'm Bossadi Zenith. A Design and FullStack engineer specialized on
-        Frontend from Cameroon. I'm {new Date().getFullYear() - 2004} years old.
-        I love building things that live on the internet without forgetting on
-        perfomarname and design precision of bringing out pixel perfect designs.
+        I&apos;m Bossadi Zenith. A Design and FullStack engineer specialized on
+        Frontend from Cameroon. I&apos;m {new Date().getFullYear() - 2004} years
+        old. I love building things that live on the internet without forgetting
+        on perfomarname and design precision of bringing out pixel perfect
+        designs.
       </h1>
       <h2>
-        I'm currently working on <LinkTo href="/projects/ground">Ground</LinkTo>
-        . In the main time, I'm working at Skaleway as a frontend lead, where I
-        get to manage other frontend developers and optimizing user interfaces
-        for our web applications for our clients for better use case scenario.
-        And I'm also{" "}
+        I&apos;m currently working on{" "}
+        <LinkTo href="/projects/ground">Ground</LinkTo>. In the main time,
+        I&apos;m working at Skaleway as a frontend lead, where I get to manage
+        other frontend developers and optimizing user interfaces for our web
+        applications for our clients for better use case scenario. And I&apos;m
+        also{" "}
         <span className="dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold">
           open
         </span>{" "}
@@ -188,7 +190,7 @@ const AboutMe = () => {
         When I&apos;m not coding/programming (or should I say outside of work),
         I love being in nature, hiking, chilling out with friends and reading
         books. I also love the concept of meeting with new people and share with
-        them what I know and learn from them as well. I'm also a big fan of
+        them what I know and learn from them as well. I&apos;m also a big fan of
         music(actually I love freestyling).
       </h2>
     </div>
