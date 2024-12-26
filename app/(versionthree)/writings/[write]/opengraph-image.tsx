@@ -18,22 +18,22 @@ export const contentType = "image/png";
 
 // Image generation
 export default async function Image({ params }: { params: params }) {
-  const slug = params.write;
+  // const slug = params.write;
 
-  const writing = allWritings.find(
-    (write) => write._meta.path === slug && write.isPublished
-  );
+  // const writing = allWritings.find(
+  //   (write) => write._meta.path === slug && write.isPublished
+  // );
 
-  if (!writing) {
-    return new Response(
-      JSON.stringify({
-        message: "Could not find writing with slug: " + slug,
-      }),
-      {
-        status: 404,
-      }
-    );
-  }
+  // if (!writing) {
+  //   return new Response(
+  //     JSON.stringify({
+  //       message: "Could not find writing with slug: " + slug,
+  //     }),
+  //     {
+  //       status: 404,
+  //     }
+  //   );
+  // }
 
   // Font
   const interSemiBold = fetch(
@@ -54,7 +54,7 @@ export default async function Image({ params }: { params: params }) {
           justifyContent: "center",
         }}
       >
-        <h1>{writing.title}</h1>
+        Nothing title
       </div>
     ),
     // ImageResponse options
