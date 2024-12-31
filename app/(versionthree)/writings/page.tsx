@@ -19,7 +19,7 @@ const Writings = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col gap-5 max-w-3xl py-56 mx-auto w-full sm:px-4 md:px-0 px-4">
+    <div className="min-h-screen flex flex-col gap-5 max-w-2xl py-56 mx-auto w-full sm:px-4 md:px-0 px-4">
       {writings.map((writing) => (
         <WritingCard writing={writing} key={writing.date} />
       ))}
@@ -53,7 +53,9 @@ const WritingCard = ({ writing }: { writing: Writing }) => {
           />
         </figure>
         <h3 className="text-2xl font-semibold">{writing.title}</h3>
-        <p className="text-lg">{writing.description}</p>
+        <p className="text-lg line-clamp-2 text-muted-foreground">
+          {writing.description}
+        </p>
         <footer className="flex justify-between pt-2 text-xs sm:col-span-2">
           <p>{writing.readingTime}</p>
           <DateTime value={writing.date} />

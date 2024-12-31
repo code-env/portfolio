@@ -1,32 +1,33 @@
 import DateTime from "@/components/shared/date";
 import Markdown from "@/components/shared/mdx";
-import { Writing, allWritings } from "content-collections";
-import { compareDesc } from "date-fns";
+import { Writing } from "content-collections";
 import Image from "next/image";
-import { NavigationButton } from "./shared/mdx-navigation";
 
 type Props = {
   writing: Writing;
 };
 
-const createPrevAndNext = (writing: Writing) => {
-  const writings = allWritings.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-  const index = writings.findIndex((w) => w === writing);
-  const next = index > 0 ? writings[index - 1] : null;
-  const prev = index + 1 < writings.length ? writings[index + 1] : null;
-  return {
-    next,
-    prev,
-  };
-};
+// const createPrevAndNext = (writing: Writing) => {
+//   const writings = allWritings.sort((a, b) =>
+//     compareDesc(new Date(a.date), new Date(b.date))
+//   );
+//   const index = writings.findIndex((w) => w === writing);
+//   const next = index > 0 ? writings[index - 1] : null;
+//   const prev = index + 1 < writings.length ? writings[index + 1] : null;
+//   return {
+//     next,
+//     prev,
+//   };
+// };
 
 const Post = ({ writing }: Props) => {
-  const { next, prev } = createPrevAndNext(writing);
-
   return (
-    <>
+    <div>
+      <div className="flex flex-col gap-2 mb-5">
+        <h1 className="text-4xl font-semibold">{writing.title}</h1>
+        <p className="text-muted-foreground">{writing.description}</p>
+      </div>
+
       <figure className="relative flex items-center gap-4 h-96">
         <Image
           src={writing.image ? writing.image.url ?? "" : ""}
@@ -41,13 +42,10 @@ const Post = ({ writing }: Props) => {
         <p>{writing.readingTime}</p>
         <DateTime title="Posted at" value={writing.date} />
       </div>
-      <Markdown code={writing.content.mdx} />
-
-      <nav className="my-10 grid grid-cols-3 place-items-center border-t border-t-base-300 pt-4 dark:border-t-base-700">
-        <NavigationButton type="prev" item={prev} />
-        <NavigationButton type="next" item={next} />
-      </nav>
-    </>
+      <div className="lg:px-10">
+        <Markdown code={writing.content.mdx} />
+      </div>
+    </div>
   );
 };
 

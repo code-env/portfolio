@@ -57,7 +57,10 @@ export const baseComponents = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium border-b border-border", className)}
+      className={cn(
+        "border-b border-border dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold transition-all duration-150",
+        className
+      )}
       {...props}
       target={
         Reflect.get(props, "href")?.toString().startsWith("http")
@@ -68,7 +71,10 @@ export const baseComponents = {
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6 text-lg", className)}
+      className={cn(
+        "leading-7 [&:not(:first-child)]:mt-6 text-lg text-neutral-700 dark:text-neutral-300 ",
+        className
+      )}
       {...props}
     />
   ),

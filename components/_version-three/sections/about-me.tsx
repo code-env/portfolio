@@ -136,30 +136,30 @@
 // };
 // export default AboutMe;
 
-import React from "react";
+import { cn } from "@/lib/utils";
 import zenith from "@/public/z.jpg";
 import Image from "next/image";
-import HoverEffect from "@/components/hover-effect";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import React from "react";
 
 const AboutMe = () => {
   return (
-    <div className="max-w-4xl w-full mx-auto text-neutral-700 dark:text-neutral-400 flex flex-col gap-4 text-xl">
+    <div className="max-w-2xl w-full mx-auto text-neutral-700 dark:text-neutral-300 flex flex-col gap-4 text-lg">
       <div className="h-32 w-32 border rounded-md overflow-hidden relative">
         <Image
           src={zenith}
           alt="Bossadi Zenith"
           fill
           className="object-cover"
+          placeholder="blur"
         />
       </div>
       <h1 className="mt-4">
-        I&apos;m Bossadi Zenith. A Design and FullStack engineer specialized on
-        Frontend from Cameroon. I&apos;m {new Date().getFullYear() - 2004} years
-        old. I love building things that live on the internet without forgetting
-        on perfomarname and design precision of bringing out pixel perfect
-        designs.
+        I&apos;m Bossadi Zenith. A Frontend engineer (and upcoming design
+        engineer) from Cameroon. I&apos;m {new Date().getFullYear() - 2004}{" "}
+        years old. I love building things that live on the internet without
+        forgetting on perfomarname and design precision of bringing out pixel
+        perfect designs.
       </h1>
       <h2>
         I&apos;m currently working on{" "}
@@ -174,7 +174,7 @@ const AboutMe = () => {
         for any new role or project that might come my way in the future.
       </h2>
       <h2>
-        I recently worked with a YC backed companey{" "}
+        I recently worked with a YC backed company{" "}
         <LinkTo href="https://withcardlift.com" target="_blank">
           Cardlift
         </LinkTo>{" "}
@@ -187,11 +187,11 @@ const AboutMe = () => {
         did there especially with the design and the performance of the UI.
       </h2>
       <h2>
-        When I&apos;m not coding/programming (or should I say outside of work),
-        I love being in nature, hiking, chilling out with friends and reading
-        books. I also love the concept of meeting with new people and share with
-        them what I know and learn from them as well. I&apos;m also a big fan of
-        music(actually I love freestyling).
+        When I&apos;m not on my desk at home or outside, I love being in nature,
+        hiking, chilling out with friends and reading books. I also love the
+        concept of meeting with new people and share with them what I know and
+        learn from them as well. I&apos;m also a big fan of music(actually I
+        love freestyling).
       </h2>
     </div>
   );
@@ -207,7 +207,7 @@ const LinkTo = ({ href, children, className, ...props }: LinkToProps) => {
     <Link
       href={href}
       className={cn(
-        "hover:saturate-200 ml-1 dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold transition-all duration-150",
+        "hover:saturate-200 border-b ml-1 dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold transition-all duration-150",
         className
       )}
       {...props}

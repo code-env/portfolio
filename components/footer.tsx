@@ -49,7 +49,13 @@ const Footer = () => {
           </li>
           {allProjects.map((project, index) => {
             //some code
-            return <li key={index}>{project.title}</li>;
+            return (
+              <li key={index}>
+                <Link href={`/projects/${project._meta.path}`}>
+                  {project.title}
+                </Link>
+              </li>
+            );
           })}
         </ul>
         <ul className="flex-1  border-dashed lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0text-lg flex flex-col gap-1 text-neutral-700 dark:text-neutral-400">

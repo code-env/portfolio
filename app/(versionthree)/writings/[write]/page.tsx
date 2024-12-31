@@ -1,8 +1,6 @@
 import React from "react";
 import { allWritings } from "content-collections";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
-import { absoluteUrl } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import Writing from "@/components/writing";
 import "@/styles/mdx.css";
@@ -49,7 +47,7 @@ const Page = async ({ params }: PageProps) => {
   }
 
   return (
-    <div className="py-56 min-h-screen px-4 sm:px-0 max-w-3xl mx-auto w-full">
+    <div className="py-56 min-h-screen px-4 sm:px-0 max-w-2xl mx-auto w-full">
       <Writing writing={writing} />
     </div>
   );

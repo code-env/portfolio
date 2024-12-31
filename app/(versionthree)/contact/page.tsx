@@ -10,8 +10,11 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div className="max-w-6xl min-h-screen push-top w-full mx-auto flex flex-col gap-10 lg:px-0 px-5">
-      <TextGradient className="text-start font-semibold" hand>
+    <div className="max-w-2xl min-h-screen push-top w-full mx-auto flex flex-col gap-10 lg:px-0 px-5">
+      <TextGradient
+        className="text-start font-semibold text-xl lg:text-2xl 2xl:text-3xl"
+        hand
+      >
         Love to hear from you, <br className="lg:block hidden" /> Get in touch
       </TextGradient>
       <ContactForm />

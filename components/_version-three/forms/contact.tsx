@@ -63,7 +63,7 @@ const ContactForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      className=""
+                      className="dark:bg-neutral-950 bg-white"
                       placeholder="Enter your name"
                       disabled={isSubmitting}
                     />
@@ -81,7 +81,7 @@ const ContactForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      className=""
+                      className="dark:bg-neutral-950 bg-white"
                       placeholder="Enter your email"
                       disabled={isSubmitting}
                     />
@@ -101,7 +101,7 @@ const ContactForm = () => {
                   <FormControl>
                     <Textarea
                       {...field}
-                      className=""
+                      className="dark:bg-neutral-950 bg-white"
                       placeholder="Enter your message"
                       disabled={isSubmitting}
                     />
@@ -113,7 +113,7 @@ const ContactForm = () => {
           </div>
           <button
             disabled={isSubmitting}
-            className="py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-700 transition-colors duration-100 hover:dark:bg-neutral-700 hover:bg-neutral-800 hover:text-neutral-50 delay-300 slowmo hover:dark:text-neutral-100 lg:w-1/2 w-full flex items-center justify-center gap-5"
+            className="py-2 relative group border-2 border-neutral-700  hover:border-transparent text-neutral-30 transition-colors duration-100 hover:dark:bg-neutral-950 hover:bg-white hover:text-neutral-950 delay-300 slowmo hover:dark:text-neutral-100 lg:w-1/2 w-full flex items-center justify-center gap-5"
           >
             <HoverEffect>
               Let&apos;s go <ArrowUpRight className="w-4 h-4" />{" "}
