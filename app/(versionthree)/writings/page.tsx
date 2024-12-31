@@ -19,7 +19,7 @@ const Writings = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col gap-5 max-w-2xl py-56 mx-auto w-full sm:px-4 md:px-0 px-4">
+    <div className="min-h-screen flex flex-col gap-5 lg:wrapper py-56">
       {writings.map((writing) => (
         <WritingCard writing={writing} key={writing.date} />
       ))}

@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 // import { Play } from "lucide-react";
@@ -136,15 +136,57 @@
 // };
 // export default AboutMe;
 
+import Arrow from "@/components/shared/arrow";
+import {
+  Content,
+  ContentChildren,
+  ContentTitle,
+} from "@/components/ui/content";
 import { cn } from "@/lib/utils";
 import zenith from "@/public/z.jpg";
+import { Github, Linkedin, X, Mail, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
+const connections = [
+  {
+    name: "Collaboration",
+    link: "mailto:hello@bossadizenith.me",
+    icon: Mail,
+  },
+  {
+    name: "Github",
+    link: "https://github.com/code-env",
+    icon: Github,
+  },
+  {
+    name: "Linkedin",
+    link: "https://linkedin.com/in/codeenv",
+    icon: Linkedin,
+  },
+  {
+    name: "Twitter",
+    link: "https://x.com/bossadizenith",
+    icon: X,
+  },
+  {
+    name: "Youtube",
+    link: "https://youtube.com/@codeenv",
+    icon: Youtube,
+  },
+  {
+    name: "Youtube",
+    link: "https://youtube.com/@codeenv",
+    icon: Youtube,
+  },
+];
 const AboutMe = () => {
+  const [hovered, setHovered] = useState(false);
+  const [hovIndex, setHovIndex] = useState(-1);
+
   return (
-    <div className="max-w-2xl w-full mx-auto text-neutral-700 dark:text-neutral-300 flex flex-col gap-4 text-lg">
+    <div className="w-full mx-auto text-neutral-700 dark:text-neutral-300 flex flex-col gap-10 text-lg">
       <div className="h-32 w-32 border rounded-md overflow-hidden relative">
         <Image
           src={zenith}
@@ -154,45 +196,79 @@ const AboutMe = () => {
           placeholder="blur"
         />
       </div>
-      <h1 className="mt-4">
-        I&apos;m Bossadi Zenith. A Frontend engineer (and upcoming design
-        engineer) from Cameroon. I&apos;m {new Date().getFullYear() - 2004}{" "}
-        years old. I love building things that live on the internet without
-        forgetting on perfomarname and design precision of bringing out pixel
-        perfect designs.
-      </h1>
-      <h2>
-        I&apos;m currently working on{" "}
-        <LinkTo href="/projects/ground">Ground</LinkTo>. In the main time,
-        I&apos;m working at Skaleway as a frontend lead, where I get to manage
-        other frontend developers and optimizing user interfaces for our web
-        applications for our clients for better use case scenario. And I&apos;m
-        also{" "}
-        <span className="dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold">
-          open
-        </span>{" "}
-        for any new role or project that might come my way in the future.
-      </h2>
-      <h2>
-        I recently worked with a YC backed company{" "}
-        <LinkTo href="https://withcardlift.com" target="_blank">
-          Cardlift
-        </LinkTo>{" "}
-        on one of their products called{" "}
-        <LinkTo href="https://spentfinance.com" target="_blank">
-          Spentfinance
-        </LinkTo>
-        . Where I was in charge of building the dashboard UI of the product.
-        Though it&apos;s still under development, I&apos;m proud of the work I
-        did there especially with the design and the performance of the UI.
-      </h2>
-      <h2>
-        When I&apos;m not on my desk at home or outside, I love being in nature,
-        hiking, chilling out with friends and reading books. I also love the
-        concept of meeting with new people and share with them what I know and
-        learn from them as well. I&apos;m also a big fan of music(actually I
-        love freestyling).
-      </h2>
+      <Content>
+        <ContentTitle>About</ContentTitle>
+        <ContentChildren>
+          <h1>
+            I&apos;m Bossadi Zenith. A Frontend engineer (and upcoming design
+            engineer) from Cameroon. I&apos;m {new Date().getFullYear() - 2004}{" "}
+            years old. I love building things that live on the internet with a
+            design-first and perfomarname mindset.
+          </h1>
+          <h2>
+            I&apos;m currently working on{" "}
+            <LinkTo href="/projects/ground">Ground</LinkTo>. In the main time,
+            I&apos;m working at Skaleway as a frontend lead, where I get to
+            manage other frontend developers and optimizing user interfaces for
+            our web applications for our clients for better use case scenario.
+            And I&apos;m also{" "}
+            <span className="dark:text-neutral-200 text-neutral-900 hover:opacity-80 font-semibold">
+              open
+            </span>{" "}
+            for any new role or project that might come my way in the future.
+          </h2>
+          <h2>
+            I recently worked with a YC backed company{" "}
+            <LinkTo href="https://withcardlift.com" target="_blank">
+              Cardlift
+            </LinkTo>{" "}
+            on one of their products called{" "}
+            <LinkTo href="https://spentfinance.com" target="_blank">
+              Spentfinance
+            </LinkTo>
+            . Where I was in charge of building the dashboard UI of the product.
+            Though it&apos;s still under development, I&apos;m proud of the work
+            I did there especially with the design and the performance of the
+            UI.
+          </h2>
+          <h2>
+            When I&apos;m not on my desk at home or outside, I love being in
+            nature, hiking, chilling out with friends and reading books. I also
+            love the concept of meeting with new people and share with them what
+            I know and learn from them as well. I&apos;m also a big fan of
+            music(actually I love freestyling).
+          </h2>
+        </ContentChildren>
+      </Content>
+      <Content>
+        <ContentTitle>Connect</ContentTitle>
+        <ContentChildren className="grid grid-cols-2 gap-4 flex-1">
+          {connections.map((connection, index) => (
+            <Link
+              href={connection.link}
+              target="_blank"
+              className={cn(
+                "bg-white dark:bg-neutral-950 rounded-md p-4 flex items-center justify-between transition-opacity duration-200",
+                hovered && hovIndex !== index ? "opacity-50" : "opacity-100"
+              )}
+              key={index}
+              onMouseEnter={() => {
+                setHovIndex(index);
+                setHovered(true);
+              }}
+              onMouseLeave={() => {
+                setHovered(false);
+                setHovIndex(-1);
+              }}
+            >
+              <p className="flex items-center gap-2">
+                <connection.icon /> <span>{connection.name}</span>
+              </p>
+              <Arrow isHovered={hovIndex === index && hovered} angle={-45} />
+            </Link>
+          ))}
+        </ContentChildren>
+      </Content>
     </div>
   );
 };

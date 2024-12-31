@@ -169,6 +169,7 @@ const projects = defineCollection({
     tags: z.array(z.string()),
     image: z.string().optional(),
     isPublished: z.boolean().default(false),
+    pinded: z.boolean().default(false),
   }),
   transform: async (project, ctx) => {
     const mdx = await compileMDX(ctx, project, {

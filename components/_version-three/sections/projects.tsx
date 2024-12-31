@@ -38,7 +38,7 @@ const Projects = ({
   const remainingProject = length - Number(take);
 
   return (
-    <div className="wrapper mt-20 relative">
+    <div className="max-w-5xl mx-auto mt-20 relative">
       <div className="flex flex-col justify-start items-start lg:translate-y-20">
         <TextGradient className="lg:text-xl 2xl:text-2xl text-lg font-medium relative">
           Some of my doings <br />{" "}
@@ -51,10 +51,7 @@ const Projects = ({
           Featured Projects
         </h2>
       </div>
-      <div
-        ref={container}
-        className="flex flex-col gap-5 md:gap-10 lg:gap-14 overflow-x-clip"
-      >
+      <div ref={container} className="overflow-x-clip">
         {allProjects.map((project, i) => {
           const targetScale = 1 - (allProjects.length - i) * 0.05;
           return (

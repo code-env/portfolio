@@ -39,7 +39,7 @@ const Footer = () => {
 
   return (
     <footer className="text-background px-4 xl:px-0">
-      <div className="justify-between flex flex-col lg:flex-row gap-5 border lg:wrapper text-neutral-700 mb-5">
+      <div className="justify-between flex flex-col lg:flex-row gap-5 border max-w-5xl mx-auto px-5 text-neutral-700 mb-5">
         <div className="flex-1 flex items-start lg:py-20 p-10 lg:px-0 lg:border-r border-b lg:border-b-0 border-dashed">
           <Logo />
         </div>

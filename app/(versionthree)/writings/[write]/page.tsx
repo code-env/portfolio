@@ -47,7 +47,7 @@ const Page = async ({ params }: PageProps) => {
   }
 
   return (
-    <div className="py-56 min-h-screen px-4 sm:px-0 max-w-2xl mx-auto w-full">
+    <div className="py-56 min-h-screen wrapper">
       <Writing writing={writing} />
     </div>
   );

@@ -76,7 +76,7 @@
   }
 
   .wrapper {
-    @apply max-w-7xl mx-auto w-full px-5 md:px-10 lg:px-20;
+    @apply max-w-5xl mx-auto w-full px-5 md:px-10 lg:px-5;
   }
 }
 
