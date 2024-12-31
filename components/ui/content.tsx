@@ -39,7 +39,10 @@ const ContentChildren = ({
   ...props
 }: ContentChildrenProps) => {
   return (
-    <div className={cn("flex-1", className)} {...props}>
+    <div
+      className={cn("flex-1 flex flex-col gap-10 text-lg", className)}
+      {...props}
+    >
       {children}
     </div>
   );
