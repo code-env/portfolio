@@ -203,7 +203,7 @@ const AboutMe = () => {
             I&apos;m Bossadi Zenith. A Frontend engineer (and upcoming design
             engineer) from Cameroon. I&apos;m {new Date().getFullYear() - 2004}{" "}
             years old. I love building things that live on the internet with a
-            design-first and perfomarname mindset.
+            design-first and performance mindset.
           </h1>
           <h2>
             I&apos;m currently working on{" "}
