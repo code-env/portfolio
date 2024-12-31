@@ -7,7 +7,10 @@ const Content = ({
   ...props
 }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
   return (
-    <div className={cn("flex", className)} {...props}>
+    <div
+      className={cn("flex flex-col gap-5 md:flex-row ", className)}
+      {...props}
+    >
       {children}
     </div>
   );
