@@ -13,7 +13,7 @@ const About = () => {
   const age = currentYear - bornDate;
 
   return (
-    <div className="max-w-3xl mx-auto min-h-screen py-40 px-5">
+    <div className="max-w-3xl mx-auto min-h-screen py-40 px-5 lg:px-0">
       <AboutMe />
     </div>
   );
