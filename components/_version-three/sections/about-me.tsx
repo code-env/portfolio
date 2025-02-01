@@ -181,6 +181,7 @@ const connections = [
     icon: Youtube,
   },
 ];
+
 const AboutMe = () => {
   const [hovered, setHovered] = useState(false);
   const [hovIndex, setHovIndex] = useState(-1);
